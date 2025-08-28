@@ -44,7 +44,7 @@
   transform: translateY(-3px);
 }
 
-/* 📱 Responsive */
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
