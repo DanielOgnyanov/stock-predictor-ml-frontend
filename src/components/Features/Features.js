@@ -6,6 +6,8 @@ const Features = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+  const currentSection = sectionRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
