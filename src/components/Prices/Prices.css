@@ -1,0 +1,70 @@
+.prices {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.prices h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  border-top: 2px solid yellow;
+  border-bottom: 2px solid yellow;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+}
+
+.prices-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Table view for desktop */
+.prices-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.prices-table th,
+.prices-table td {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.prices-table th {
+  background: #f7f7f7;
+}
+
+.positive {
+  color: green;
+  font-weight: bold;
+}
+
+.negative {
+  color: red;
+  font-weight: bold;
+}
+
+.prices-cards {
+  display: none;
+}
+
+.price-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: #fafafa;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+  .prices-table {
+    display: none;
+  }
+
+  .prices-cards {
+    display: block;
+  }
+}
