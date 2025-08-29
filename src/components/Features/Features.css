@@ -1,0 +1,35 @@
+.features {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-in-out;
+  padding: 6rem 2rem;
+  text-align: center;
+  border-top: 3px solid rgb(255, 230, 0);
+  border-bottom: 3px solid rgb(255, 230, 0);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+.features.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.features-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #facc15; 
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 800px;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.features-list li {
+  margin-bottom: 1.2rem;
+}
