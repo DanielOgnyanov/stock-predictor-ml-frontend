@@ -17,7 +17,6 @@
   margin: 0 auto;
 }
 
-/* Table view for desktop */
 .prices-table {
   width: 100%;
   border-collapse: collapse;
@@ -33,16 +32,6 @@
 
 .prices-table th {
   background: #f7f7f7;
-}
-
-.positive {
-  color: green;
-  font-weight: bold;
-}
-
-.negative {
-  color: red;
-  font-weight: bold;
 }
 
 .prices-cards {
