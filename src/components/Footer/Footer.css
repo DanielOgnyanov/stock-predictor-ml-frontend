@@ -1,5 +1,5 @@
 .footer {
-  background-color: #0f172a; /* dark navy */
+  background-color: #0f172a; 
   color: #ffffff;
   padding: 1.5rem 2rem;
   margin-top: 2rem;
@@ -15,18 +15,18 @@
 .footer-links {
   display: flex;
   gap: 1.5rem;
-  margin-bottom: 15px; /* ensures date stays under links */
+  margin-bottom: 15px;
 }
 
 .footer-links a {
   color: #94a3b8;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 18px;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #38bdf8; /* light blue */
+  color: #38bdf8; 
 }
 
 .footer-text {
