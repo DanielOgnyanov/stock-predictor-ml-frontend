@@ -1,25 +1,16 @@
-
-import Header from "./components/Header/Header";
-import Hero from "./components/Hero/Hero";
-import HowItWorks from "./components/HowItWorks/HowItWorks";
-import Features from "./components/Features/Features";
-import Prices from "./components/Prices/Prices";
-import Footer from "./components/Footer/Footer";
-
-import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import IndexPage from "./pages/IndexPage/IndexPage";
+import Header from "../src/components/Header/Header"
 
 function App() {
   return (
-    <div className="App">
-      
+    <Router>
       <Header />
-      <Hero />
-      <HowItWorks />
-      <Prices />
-      <Features />
-      <Footer />
-      
-    </div>
+      <Routes>
+        <Route path="/" element={<IndexPage />} />
+      </Routes>
+    </Router>
   );
 }
 
