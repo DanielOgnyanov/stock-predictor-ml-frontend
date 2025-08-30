@@ -3,30 +3,25 @@
   color: #ffffff;
   padding: 1.5rem 2rem;
   margin-top: 2rem;
+  text-align: center;
 }
 
 .footer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.footer-text {
-  font-size: 0.9rem;
-  opacity: 0.8;
 }
 
 .footer-links {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  margin-bottom: 
 }
 
 .footer-links a {
   color: #94a3b8;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: color 0.3s ease;
 }
 
@@ -34,8 +29,7 @@
   color: #38bdf8; 
 }
 
-@media (min-width: 768px) {
-  .footer-container {
-    flex-direction: row;
-  }
+.footer-text {
+  font-size: 0.85rem;
+  opacity: 0.8;
 }
