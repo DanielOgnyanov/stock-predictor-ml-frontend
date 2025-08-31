@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { fetchStocks } from "../../api/stockApi";
 import "./Prices.css";
 
 export default function Prices() {
-  // my json for test
-  const data = [
-    { symbol: "AAPL", price: "187.23" },
-    { symbol: "GOOGL", price: "134.56" },
-    { symbol: "MSFT", price: "322.14" },
-    { symbol: "TSLA", price: "251.80" },
-  ];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const getStocks = async () => {
+      const stocks = await fetchStocks();
+      setData(stocks);
+    };
+
+    getStocks();
+  }, []);
 
   return (
     <section className="prices">
