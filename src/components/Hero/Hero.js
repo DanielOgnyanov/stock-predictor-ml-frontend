@@ -10,7 +10,7 @@ const Hero = () => {
           Get real-time predictions and insights to make smarter trading
           decisions.
         </p>
-        <button className="hero-btn">See Prices</button>
+        <button className="hero-btn">Register</button>
       </div>
     </section>
   );
