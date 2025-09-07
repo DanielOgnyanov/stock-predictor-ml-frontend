@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import IndexPage from "./pages/IndexPage/IndexPage";
+import Login from "./components/Login/Login";
 import Header from "../src/components/Header/Header"
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<IndexPage />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
