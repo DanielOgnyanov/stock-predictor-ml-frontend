@@ -1,0 +1,54 @@
+.register-container {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("https://source.unsplash.com/1600x900/?technology,abstract") 
+    no-repeat center center/cover;
+}
+
+.register-form {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  width: 520px;
+  height: 450px;
+  text-align: center;
+  box-sizing: border-box; 
+}
+
+.register-form h2 {
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.register-form input {
+  width: 92%;           
+  padding: 14px;
+  margin: 10px auto;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  display: block;         
+  box-sizing: border-box; 
+}
+
+.register-form button {
+  width: 92%;
+  padding: 12px;
+  margin-top: 12px;
+  background: #4cafef;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.register-form button:hover {
+  background: #1f89d8;
+}
