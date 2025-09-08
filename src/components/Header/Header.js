@@ -11,6 +11,7 @@ function Header() {
         <a href="#features">Predict</a>
         <a href="#live">Live Prices</a>
         <a href="login">Login</a>
+         <a href="register">Register</a>
        
       </nav>
     </header>
