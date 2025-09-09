@@ -25,6 +25,7 @@ function Register() {
       <form className="register-form" onSubmit={handleSubmit}>
         <h2>Register</h2>
 
+        <label className="login-label" htmlFor="firstName">First Name</label>
         <input
           type="text"
           name="firstName"
@@ -33,7 +34,7 @@ function Register() {
           onChange={handleChange}
           required
         />
-
+        <label className="login-label" htmlFor="lastName">Last Name</label>
         <input
           type="text"
           name="lastName"
@@ -43,6 +44,8 @@ function Register() {
           required
         />
 
+
+        <label className="login-label" htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
@@ -52,6 +55,7 @@ function Register() {
           required
         />
 
+        <label className="login-label" htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
@@ -61,6 +65,7 @@ function Register() {
           required
         />
 
+        <label className="login-label" htmlFor="confirmPassword">Confirm Password</label>
         <input
           type="password"
           name="confirmPassword"

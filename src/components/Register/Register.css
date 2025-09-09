@@ -13,7 +13,7 @@
   border-radius: 12px;
   backdrop-filter: blur(8px);
   width: 620px;
-  height: 450px;
+  height: 650px;
   text-align: center;
   box-sizing: border-box; 
 }
@@ -33,6 +33,13 @@
   border-radius: 6px;
   display: block;         
   box-sizing: border-box; 
+}
+
+.login-label {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+  margin-top: 0.4rem;
+  text-align: left;
 }
 
 .register-form button {
