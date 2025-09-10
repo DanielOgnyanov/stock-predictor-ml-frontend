@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import "./Login.css";
+import {loginUser} from "../../api/authLogin" 
 
-export default function Login({ onSubmit }) {
+
+const Login = ({ onSubmit }) => {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const validate = () => {
     const e = {};
