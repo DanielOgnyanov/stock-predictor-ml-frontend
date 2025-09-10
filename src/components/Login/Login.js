@@ -4,7 +4,7 @@ import {loginUser} from "../../api/authLogin"
 
 
 const Login = ({ onSubmit }) => {
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -19,17 +19,29 @@ const Login = ({ onSubmit }) => {
     return e;
   };
 
-  const handleSubmit = (ev) => {
+  const handleSubmit = async (ev) => {
     ev.preventDefault();
     const e = validate();
     setErrors(e);
+
     if (Object.keys(e).length === 0) {
-     
-      if (typeof onSubmit === "function") {
-        onSubmit({ email, password });
-      } else {
-        console.log("LOGIN SUBMIT", { email, password });
-      
+      setLoading(true);
+      try {
+        
+        const data = await loginUser(email, password);
+        console.log("Login success:", data);
+
+        
+        localStorage.setItem("token", data.token);
+
+        if (typeof onSubmit === "function") {
+          onSubmit(data);
+        }
+      } catch (err) {
+        console.error("Login error:", err);
+        setErrors({ api: "Invalid email or password" });
+      } finally {
+        setLoading(false);
       }
     }
   };
