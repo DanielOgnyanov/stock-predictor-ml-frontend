@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 
 function Register() {
-  const [formData, setFormData] = useState({
+   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -10,18 +10,39 @@ function Register() {
     confirmPassword: "",
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+   const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Register form submitted:", formData);
-    
+
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      const response = await registerUser({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+      });
+      console.log("User registered:", response);
+      alert("Registration successful!");
+    } catch (error) {
+      console.error("Registration failed:", error);
+      alert("Registration failed: " + error);
+    }
   };
 
   return (
-    <div className="register-container">
+      <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
         <h2>Register</h2>
 
@@ -34,6 +55,7 @@ function Register() {
           onChange={handleChange}
           required
         />
+
         <label className="login-label" htmlFor="lastName">Last Name</label>
         <input
           type="text"
@@ -43,7 +65,6 @@ function Register() {
           onChange={handleChange}
           required
         />
-
 
         <label className="login-label" htmlFor="email">Email</label>
         <input
