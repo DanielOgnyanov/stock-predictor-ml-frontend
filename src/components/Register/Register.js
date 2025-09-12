@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
-import {registerUser}  from "../../api/authRegister"
+import { authRegister } from "../../api/authRegister";
+
 
 function Register() {
    const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ function Register() {
     }
 
     try {
-      const response = await registerUser({
+      const response = await authRegister({
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
