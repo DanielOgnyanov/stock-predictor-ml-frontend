@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { authRegister } from "../../api/authRegister";
+import { useNavigate } from "react-router-dom";
 
 
 function Register() {
+   const navigate = useNavigate(); 
    const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
