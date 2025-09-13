@@ -39,6 +39,7 @@ function Register() {
       });
       console.log("User registered:", response);
       alert("Registration successful!");
+      navigate("/homepage");
     } catch (error) {
       console.error("Registration failed:", error);
       alert("Registration failed: " + error);
