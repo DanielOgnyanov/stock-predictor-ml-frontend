@@ -31,6 +31,7 @@ const Login = ({ onSubmit }) => {
         
         const data = await loginUser(email, password);
         console.log("Login success:", data);
+        navigate("/homepage");
 
         
         localStorage.setItem("token", data.token);
