@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./Login.css";
-import {loginUser} from "../../api/authLogin" 
+import { loginUser } from "../../api/authLogin"
 import { useNavigate } from "react-router-dom";
 
 
 const Login = ({ onSubmit }) => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -28,12 +28,12 @@ const Login = ({ onSubmit }) => {
     if (Object.keys(e).length === 0) {
       setLoading(true);
       try {
-        
+
         const data = await loginUser(email, password);
         console.log("Login success:", data);
         navigate("/homepage");
 
-        
+
         localStorage.setItem("token", data.token);
 
         if (typeof onSubmit === "function") {
@@ -49,50 +49,50 @@ const Login = ({ onSubmit }) => {
   };
 
   return (
-   <div className="login-container">
-  <form className="login-card" onSubmit={handleSubmit} noValidate>
-    <h2 className="login-title">Sign in</h2>
+    <div className="login-container">
+      <form className="login-card" onSubmit={handleSubmit} noValidate>
+        <h2 className="login-title">Sign in</h2>
 
-    <label className="login-label" htmlFor="email">Email</label>
-    <input
-      id="email"
-      className={`login-input ${errors.email ? "invalid" : ""}`}
-      type="email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      placeholder="you@company.com"
-      autoComplete="username"
-      aria-invalid={!!errors.email}
-      aria-describedby={errors.email ? "email-error" : undefined}
-    />
-    {errors.email && <div id="email-error" className="login-error">{errors.email}</div>}
+        <label className="login-label" htmlFor="email">Email</label>
+        <input
+          id="email"
+          className={`login-input ${errors.email ? "invalid" : ""}`}
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@company.com"
+          autoComplete="username"
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? "email-error" : undefined}
+        />
+        {errors.email && <div id="email-error" className="login-error">{errors.email}</div>}
 
-    <label className="login-label" htmlFor="password">Password</label>
-    <input
-      id="password"
-      className={`login-input ${errors.password ? "invalid" : ""}`}
-      type="password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      placeholder="••••••••"
-      autoComplete="current-password"
-      aria-invalid={!!errors.password}
-      aria-describedby={errors.password ? "password-error" : undefined}
-    />
-    {errors.password && <div id="password-error" className="login-error">{errors.password}</div>}
+        <label className="login-label" htmlFor="password">Password</label>
+        <input
+          id="password"
+          className={`login-input ${errors.password ? "invalid" : ""}`}
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="••••••••"
+          autoComplete="current-password"
+          aria-invalid={!!errors.password}
+          aria-describedby={errors.password ? "password-error" : undefined}
+        />
+        {errors.password && <div id="password-error" className="login-error">{errors.password}</div>}
 
-  
-    {errors.api && <div className="login-error">{errors.api}</div>}
 
-    <button type="submit" className="login-button" disabled={loading}>
-      {loading ? "Signing in..." : "Sign in"}
-    </button>
+        {errors.api && <div className="login-error">{errors.api}</div>}
 
-    <div className="login-footer">
-      <a href="#forgot" className="login-link">Forgot password?</a>
+        <button type="submit" className="login-button" disabled={loading}>
+          {loading ? "Signing in..." : "Sign in"}
+        </button>
+
+        <div className="login-footer">
+          <a href="#forgot" className="login-link">Forgot password?</a>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
 
   );
 }
