@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 
 function Register() {
-   const navigate = useNavigate(); 
-   const [formData, setFormData] = useState({
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -15,7 +15,7 @@ function Register() {
   });
 
 
-   const handleChange = (e) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -47,7 +47,7 @@ function Register() {
   };
 
   return (
-      <div className="register-container">
+    <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
         <h2>Register</h2>
 
