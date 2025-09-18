@@ -15,6 +15,7 @@ function Header() {
             <a href="#news">News</a>
             <a href="#home">Home</a>
             <a href="#predict">Predict</a>
+            <a href="#live">Live Prices</a>
             <button 
               onClick={() => setIsLoggedIn(false)} 
               className="logout-btn"
