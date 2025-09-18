@@ -1,36 +1,46 @@
 import "./Header.css";
-import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext"; 
 
 function Header() {
- 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, logout } = useContext(AuthContext);
+
+  const guestLinks = [
+    { label: "Live Prices", path: "#live" },
+    { label: "Login", path: "login" },
+    { label: "Register", path: "register" },
+  ];
+
+  const authLinks = [
+    { label: "News", path: "#news" },
+    { label: "Home", path: "#home" },
+    { label: "Predict", path: "#predict" },
+    { label: "Live Prices", path: "#live" },
+  ];
 
   return (
     <header className="header">
       <div className="logo">📈 Stock Predictor</div>
       <nav className="nav">
-        {isLoggedIn ? (
-          <>
-           
-            <a href="#news">News</a>
-            <a href="#home">Home</a>
-            <a href="#predict">Predict</a>
-            <a href="#live">Live Prices</a>
-            <button 
-              onClick={() => setIsLoggedIn(false)} 
-              className="logout-btn"
-            >
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            
-            <a href="#live">Live Prices</a>
-            <a href="login">Login</a>
-            <a href="register">Register</a>
-          </>
-        )}
+        {isLoggedIn
+          ? (
+            <>
+              {authLinks.map((link) => (
+                <a key={link.label} href={link.path}>
+                  {link.label}
+                </a>
+              ))}
+              <button onClick={logout} className="logout-btn">
+                Logout
+              </button>
+            </>
+          ) : (
+            guestLinks.map((link) => (
+              <a key={link.label} href={link.path}>
+                {link.label}
+              </a>
+            ))
+          )}
       </nav>
     </header>
   );
