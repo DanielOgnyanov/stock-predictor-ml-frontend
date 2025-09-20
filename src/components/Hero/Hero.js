@@ -5,7 +5,11 @@ import { useNavigate } from "react-router-dom";
 const Hero = () => {
   const navigate = useNavigate();
 
-  
+  const handleRegisterClick = () => {
+    navigate("/register"); 
+  };
+
+
   return (
     <section className="hero">
       <div className="hero-content">
@@ -14,7 +18,9 @@ const Hero = () => {
           Get real-time predictions and insights to make smarter trading
           decisions.
         </p>
-        <button className="hero-btn">Register</button>
+         <button className="hero-btn" onClick={handleRegisterClick}>
+          Register
+        </button>
       </div>
     </section>
   );
