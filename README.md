@@ -14,6 +14,6 @@ React Router – page navigation
 
 Axios – API communication
 
-Recharts / Charts.js (optional) – stock price charts
+Recharts / Charts.js – stock price charts
 
 CSS – custom styling
