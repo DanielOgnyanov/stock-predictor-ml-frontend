@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 
-const Home = () => {
+const Homepage = () => {
   const { user } = useContext(AuthContext);
 
   return (
@@ -18,4 +18,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Homepage;
