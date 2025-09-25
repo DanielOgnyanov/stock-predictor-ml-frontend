@@ -2,11 +2,35 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  padding: 2rem;
+  background: #f5f7fa; 
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .welcome-banner {
   grid-column: span 2;
-  background: var(--light-bg);
-  padding: 1.5rem;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.welcome-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.welcome-banner h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-banner p {
+  font-size: 1.1rem;
+  opacity: 0.95;
 }
