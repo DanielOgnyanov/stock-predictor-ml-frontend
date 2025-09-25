@@ -1,0 +1,12 @@
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.welcome-banner {
+  grid-column: span 2;
+  background: var(--light-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
