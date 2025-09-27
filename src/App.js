@@ -7,6 +7,7 @@ import Register from "./components/Register/Register";
 import Header from "./components/Header/Header";
 import { AuthProvider } from "./context/AuthContext"; 
 import Homepage from "./pages/Homepage/Homepage"
+import Predict from "./pages/Predict/Predict"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/homepage" element={<Homepage />} />
+          <Route path="/predict" element={<Predict />} />
         </Routes>
       </Router>
     </AuthProvider>
