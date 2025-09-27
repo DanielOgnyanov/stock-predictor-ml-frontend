@@ -6,16 +6,16 @@ function Header() {
   const { isLoggedIn, logout } = useContext(AuthContext);
 
   const guestLinks = [
-    { label: "Live Prices", path: "#live" },
+    { label: "Live Prices", path: "live" },
     { label: "Login", path: "login" },
     { label: "Register", path: "register" },
   ];
 
   const authLinks = [
-    { label: "News", path: "#news" },
-    { label: "Home", path: "#home" },
-    { label: "Predict", path: "#predict" },
-    { label: "Live Prices", path: "#live" },
+    { label: "News", path: "news" },
+    { label: "Home", path: "home" },
+    { label: "Predict", path: "predict" },
+    { label: "Live Prices", path: "live" },
   ];
 
   return (
