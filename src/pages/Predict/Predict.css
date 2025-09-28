@@ -22,12 +22,14 @@
 
 
 .predict-select {
-    width: 250px;
+  width: 250px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+
+  border: 1px solid #000000;  
   outline: none;
+
   padding: 14px 20px;
   border-radius: 12px;
   font-size: 18px;
@@ -37,6 +39,7 @@
   cursor: pointer;
   min-width: 160px;
 }
+
 
 .predict-select::-ms-expand { display: none; }
 
