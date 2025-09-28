@@ -12,24 +12,25 @@ const Predict = ({ onSubmit }) => {
   };
 
   return (
-    <form className="predict-form" onSubmit={handleSubmit} aria-label="predict-form">
-      <select
-        aria-label="ticker-select"
-        className="predict-select"
-        value={symbol}
-        onChange={(e) => setSymbol(e.target.value)}
-      >
-        {symbols.map((s) => (
-          <option key={s} value={s}>
-            {s}
-          </option>
-        ))}
-      </select>
+    <div className="predict-root">
+      <form className="predict-form" onSubmit={handleSubmit}>
+        <select
+          className="predict-select"
+          value={symbol}
+          onChange={(e) => setSymbol(e.target.value)}
+        >
+          {symbols.map((s) => (
+            <option key={s} value={s}>
+              {s}
+            </option>
+          ))}
+        </select>
 
-      <button type="submit" className="predict-button" aria-label="predict-button">
-        Predict
-      </button>
-    </form>
+        <button type="submit" className="predict-button">
+          Predict
+        </button>
+      </form>
+    </div>
   );
 };
 
