@@ -17,8 +17,7 @@
   justify-content: center;
   padding: 20px 28px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+ background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
 
