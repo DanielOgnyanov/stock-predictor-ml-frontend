@@ -14,6 +14,7 @@ const Predict = ({ onSubmit }) => {
   return (
     <div className="predict-root">
       <form className="predict-form" onSubmit={handleSubmit}>
+        <p>Select the stock and our ML will predict the possible price based on historical data.</p>
         <select
           className="predict-select"
           value={symbol}
