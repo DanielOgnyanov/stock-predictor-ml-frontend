@@ -21,6 +21,10 @@
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
+.predict-form p {
+  font-size: 10px;
+}
+
 
 .predict-select {
   width: 250px;
