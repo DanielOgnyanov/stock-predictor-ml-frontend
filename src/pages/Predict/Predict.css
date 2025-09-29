@@ -62,7 +62,7 @@
   font-weight: 700;
   cursor: pointer;
   background: linear-gradient(90deg, #6ee7b7, #60a5fa);
-  color: #052024;
+  color: #ffffff;
   box-shadow: 0 6px 18px rgba(6, 32, 46, 0.25);
   transition: transform 0.15s ease;
 }
