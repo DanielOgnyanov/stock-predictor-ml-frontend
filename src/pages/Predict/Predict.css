@@ -22,7 +22,9 @@
 }
 
 .predict-form p {
-  font-size: 10px;
+  font-size: 18px;
+  justify-content: center;
+  font-weight: bold;
 }
 
 
