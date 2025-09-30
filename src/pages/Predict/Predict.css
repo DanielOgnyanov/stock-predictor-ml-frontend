@@ -8,7 +8,8 @@
 }
 
 .predict-form {
-  width: 480px;
+  width: 500px;
+  height: 250px;
   padding: 28px;
   border-radius: 16px;
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
