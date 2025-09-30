@@ -54,7 +54,7 @@ const Predict = () => {
               {result.direction}
             </div>
             <div className="confidence">
-              Price: {result.price}%
+              Price: {result.price}$
             </div>
           </div>
         )}
