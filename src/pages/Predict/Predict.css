@@ -22,12 +22,18 @@
 }
 
 .predict-form p {
-  font-size: 18px;
-  justify-content: center;
-  font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
-  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-align: center;        
+  color: #ffffff;
+  margin: 0 0 12px;          
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15); 
+  letter-spacing: 0.5px;     
 }
+
 
 
 .predict-select {
