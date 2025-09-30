@@ -1,78 +1,112 @@
-
 .predict-root {
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-height: 100vh; 
-  background: linear-gradient(135deg, #f5f7fa 0%, #60e9b4 100%);
+  align-items: center;
+  height: 100vh;
+  background: #0f172a; 
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 .predict-form {
-  width: 600px;     
-  height: 350px;
-  display: flex;
-  flex-direction: column;   
-  gap: 16px;                
-  align-items: center;      
-  justify-content: center;  
-  padding: 20px 28px;
+  width: 480px;
+  padding: 28px;
   border-radius: 16px;
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
-.predict-form p {
-  font-size: 20px;
+
+.predict-title {
+  font-size: 26px;
   font-weight: 700;
-  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  text-align: center;        
-  color: #ffffff;
-  margin: 0 0 12px;          
-  padding: 8px 12px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.15); 
-  letter-spacing: 0.5px;     
+  color: #fff;
+  margin: 0;
 }
 
+.predict-subtitle {
+  font-size: 16px;
+  color: #f0f9ff;
+  text-align: center;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
 
 
 .predict-select {
-  width: 250px;
-  
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  border: 1px solid #000000;  
-  outline: none;
-
-  padding: 14px 20px;
-  border-radius: 12px;
-  font-size: 18px;
+  width: 260px;
+  padding: 12px 16px;
+  font-size: 16px;
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 2px solid #fff;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
   cursor: pointer;
-  min-width: 160px;
 }
 
+.predict-select option {
+  color: #000;
+}
 
-.predict-select::-ms-expand { display: none; }
 
 .predict-button {
-  border: none;
-  outline: none;
-  padding: 14px 24px;
-  border-radius: 12px;
-  font-size: 18px;
+  width: 180px;
+  padding: 12px 20px;
+  font-size: 16px;
   font-weight: 700;
+  border-radius: 12px;
+  border: none;
   cursor: pointer;
-  background: linear-gradient(90deg, #6ee7b7, #60a5fa);
-  color: #ffffff;
-  box-shadow: 0 6px 18px rgba(6, 32, 46, 0.25);
-  transition: transform 0.15s ease;
+  background: #1e293b;
+  color: #fff;
+  transition: all 0.25s ease;
 }
 
-.predict-button:hover {
-  transform: translateY(-3px);
+.predict-button:hover:not(:disabled) {
+  background: #334155;
+}
+
+.predict-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+.predict-result {
+  margin-top: 12px;
+  padding: 16px 20px;
+  width: 100%;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.predict-result .ticker {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.predict-result .direction {
+  font-size: 18px;
+  margin: 6px 0;
+}
+
+.predict-result .direction.bullish {
+  color: #22c55e; 
+}
+
+.predict-result .direction.bearish {
+  color: #ef4444; 
+}
+
+.predict-result .confidence {
+  font-size: 16px;
+  color: #e2e8f0;
 }
