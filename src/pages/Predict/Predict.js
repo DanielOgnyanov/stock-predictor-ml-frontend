@@ -14,7 +14,7 @@ const Predict = () => {
     setLoading(true);
     setResult(null);
 
-    
+
     await new Promise((r) => setTimeout(r, 1500));
 
     // Mock test results
@@ -50,11 +50,11 @@ const Predict = () => {
         {result && (
           <div className="predict-result">
             <div className="ticker">{symbol}</div>
-            <div className={`direction ${result.direction.toLowerCase()}`}>
+            <div className={`direction ${result.direction ? result.direction.toLowerCase() : ""}`}>
               {result.direction}
             </div>
             <div className="confidence">
-              Confidence: {result.confidence}%
+              Price: {result.price}%
             </div>
           </div>
         )}
