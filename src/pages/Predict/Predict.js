@@ -14,6 +14,7 @@ const Predict = () => {
 
     setLoading(true);
     setResult(null);
+    setError(null);
 
 
     await new Promise((r) => setTimeout(r, 1500));
