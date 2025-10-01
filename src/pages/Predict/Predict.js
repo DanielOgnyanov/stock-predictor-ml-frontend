@@ -49,6 +49,8 @@ const Predict = () => {
           {loading ? "Predicting…" : "Predict"}
         </button>
 
+        {error && <div className="predict-error">{error}</div>}
+
         {result && (
           <div className="predict-result">
             <div className="ticker">{symbol}</div>
