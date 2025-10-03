@@ -16,12 +16,22 @@ const Predict = () => {
     setResult(null);
     setError(null);
 
+    try {
+      const response = await fetch(
+        `http://localhost:8080/api/predict/${symbol}/latest`
+      );
 
-    await new Promise((r) => setTimeout(r, 1500));
+      if (!response.ok) {
+        throw new Error("Backend error");
+      }
 
-    // Mock test results
-    setResult({ price: 182 });
-    setLoading(false);
+      const data = await response.json();
+      setResult(data); // { symbol, predicted_close }
+    } catch (err) {
+      setError("At the moment it is not possible to predict, try it later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -53,12 +63,9 @@ const Predict = () => {
 
         {result && (
           <div className="predict-result">
-            <div className="ticker">{symbol}</div>
-            <div className={`direction ${result.direction ? result.direction.toLowerCase() : ""}`}>
-              {result.direction}
-            </div>
+            <div className="ticker">{result.symbol}</div>
             <div className="price">
-              Price: {result.price}$
+              Predicted Close: {Number(result.predicted_close).toFixed(2)}$
             </div>
           </div>
         )}
