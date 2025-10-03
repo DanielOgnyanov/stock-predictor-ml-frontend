@@ -57,7 +57,7 @@ const Predict = () => {
             <div className={`direction ${result.direction ? result.direction.toLowerCase() : ""}`}>
               {result.direction}
             </div>
-            <div className="confidence">
+            <div className="price">
               Price: {result.price}$
             </div>
           </div>
