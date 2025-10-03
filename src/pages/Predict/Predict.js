@@ -26,7 +26,7 @@ const Predict = () => {
       }
 
       const data = await response.json();
-      setResult(data); // { symbol, predicted_close }
+      setResult(data); 
     } catch (err) {
       setError("At the moment it is not possible to predict, try it later.");
     } finally {
