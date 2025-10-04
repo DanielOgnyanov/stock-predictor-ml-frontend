@@ -85,7 +85,7 @@ function Register() {
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="••••••••"
           value={formData.password}
           onChange={handleChange}
           required
@@ -95,7 +95,7 @@ function Register() {
         <input
           type="password"
           name="confirmPassword"
-          placeholder="Confirm Password"
+          placeholder="••••••••"
           value={formData.confirmPassword}
           onChange={handleChange}
           required
