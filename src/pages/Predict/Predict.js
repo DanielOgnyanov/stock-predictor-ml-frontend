@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Predict.css";
+import IndicatorInfo from "../../components/IndicatorInfo/IndicatorInfo";
 
 const Predict = () => {
   const symbols = ["AAPL", "MSFT", "NVDA", "GOOGL", "AMZN"];
@@ -72,6 +73,8 @@ const Predict = () => {
           </div>
         )}
       </form>
+
+      <IndicatorInfo />
     </div>
   );
 };
