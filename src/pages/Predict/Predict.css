@@ -8,6 +8,7 @@
 }
 
 .predict-form {
+  justify-content: center;
   width: 580px;
   height: 320px;
   padding: 28px;
