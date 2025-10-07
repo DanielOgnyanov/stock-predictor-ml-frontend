@@ -8,11 +8,13 @@ import Header from "./components/Header/Header";
 import { AuthProvider } from "./context/AuthContext"; 
 import Homepage from "./pages/Homepage/Homepage"
 import Predict from "./pages/Predict/Predict"
+import GlobalBackground from "./components/GlobalBackground/GlobalBackground";
 
 function App() {
   return (
     <AuthProvider>
       <Router>
+        <GlobalBackground />
         <Header />
         <Routes>
           <Route path="/" element={<IndexPage />} />
