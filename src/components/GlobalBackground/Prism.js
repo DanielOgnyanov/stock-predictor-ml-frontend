@@ -6,7 +6,7 @@ const Prism = ({
   height = 3.5,
   baseWidth = 5.5,
   animationType = 'rotate',
-  glow = 1,
+  glow = 0.8,
   offset = { x: 0, y: 0 },
   noise = 0.5,
   transparent = true,
@@ -17,7 +17,7 @@ const Prism = ({
   inertia = 0.05,
   bloom = 1,
   suspendWhenOffscreen = false,
-  timeScale = 0.5
+  timeScale = 0.4
 }) => {
   const containerRef = useRef(null);
 
