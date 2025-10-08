@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   padding: 2rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #60e9b4 100%);
+
   min-height: 100vh;
   box-sizing: border-box;
    margin-bottom: 50px;
