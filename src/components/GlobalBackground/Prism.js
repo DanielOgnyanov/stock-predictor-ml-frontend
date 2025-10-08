@@ -4,7 +4,7 @@ import './Prism.css';
 
 const Prism = ({
   height = 3.5,
-  baseWidth = 5.5,
+  baseWidth = 4.5,
   animationType = 'rotate',
   glow = 0.8,
   offset = { x: 0, y: 0 },
