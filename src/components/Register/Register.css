@@ -20,7 +20,7 @@
 .register-form h2 {
   margin-bottom: 25px;
   color: #ffffff;
-  font-weight: 600;
+  font-size: 30px;
   text-align: center; 
 }
 
@@ -55,13 +55,13 @@
 
 .register-form button {
   margin-top: 18px;
-  width: 570px;
+  width: 595px;
   padding: 14px;
   border-radius: 10px;
   background: linear-gradient(90deg, rgba(0,212,255,0.9), rgba(0,122,255,0.9));
-  color: #001019;
+  color: #ffffff;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 18px;
   border: none;
   cursor: pointer;
   box-shadow: 0 8px 18px rgba(0,122,255,0.18);
