@@ -4,10 +4,9 @@
 }
 
 .prices h2 {
-  font-size: 2rem;
+  font-size: 45px;
   margin-bottom: 2rem;
-  border-top: 2px solid yellow;
-  border-bottom: 2px solid yellow;
+  color: white;
   display: inline-block;
   padding: 0.5rem 2rem;
 }
