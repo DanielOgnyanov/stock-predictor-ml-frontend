@@ -1,9 +1,11 @@
 import "./Header.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext"; 
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const { isLoggedIn, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const guestLinks = [
     { label: "Live Prices", path: "live" },
@@ -18,9 +20,19 @@ function Header() {
     { label: "Live Prices", path: "live" },
   ];
 
+    const handleLogoClick = () => {
+    if (isLoggedIn) {
+      navigate("/homepage");
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <header className="header">
-      <div className="logo">📈 Stock Predictor</div>
+      <div className="logo" onClick={handleLogoClick}>
+        📈 Stock Predictor
+      </div>
       <nav className="nav">
         {isLoggedIn
           ? (
