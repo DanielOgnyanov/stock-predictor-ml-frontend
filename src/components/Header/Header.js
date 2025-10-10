@@ -8,7 +8,7 @@ function Header() {
   const navigate = useNavigate();
 
   const guestLinks = [
-    { label: "Live Prices", path: "live" },
+    { label: "Live Prices", path: "livePrices" },
     { label: "Login", path: "login" },
     { label: "Register", path: "register" },
   ];
