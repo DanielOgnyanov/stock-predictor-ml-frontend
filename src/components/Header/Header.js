@@ -17,7 +17,7 @@ function Header() {
     { label: "News", path: "news" },
     { label: "Home", path: "home" },
     { label: "Predict", path: "predict" },
-    { label: "Live Prices", path: "live" },
+    { label: "Live Prices", path: "livePrices" },
   ];
 
     const handleLogoClick = () => {
