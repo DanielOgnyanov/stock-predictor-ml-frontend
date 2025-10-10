@@ -1,65 +1,61 @@
 .live-container {
-  padding: 60px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  color: white;
+  max-width: 850px;
+  margin: 80px auto;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 35px 40px;
+  border-radius: 16px;
+  color: #ffffff;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
+  backdrop-filter: blur(10px);
 }
 
-.live-title {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  color: #00d4ff;
-  text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+.live-container h2 {
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.price-table th {
+  background-color: #00d4ff;
+  color: #000;
+  font-weight: bold;
+  padding: 14px;
+  border-radius: 8px 8px 0 0;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.stock-table {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
-  overflow: hidden;
+.price-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 1.1rem;
 }
 
-.stock-header, .stock-row {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr;
-  padding: 14px 20px;
-  align-items: center;
+.price-table tr:last-child td {
+  border-bottom: none;
 }
 
-.stock-header {
-  background: rgba(0, 212, 255, 0.1);
-  font-weight: bold;
-  color: #00d4ff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.stock-row {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: background 0.3s ease;
-}
-
-.stock-row:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.stock-row.up span:last-child {
+.up {
   color: #00ff88;
+  font-weight: bold;
 }
 
-.stock-row.down span:last-child {
-  color: #ff4d4d;
+.down {
+  color: #ff4444;
+  font-weight: bold;
 }
 
-@media (max-width: 700px) {
-  .stock-header, .stock-row {
-    grid-template-columns: 1fr 2fr 1fr;
-  }
-  .stock-header span:nth-child(2),
-  .stock-row span:nth-child(2) {
-    display: none;
-  }
+.neutral {
+  color: #cccccc;
+}
+
+.price-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: background 0.3s ease;
 }

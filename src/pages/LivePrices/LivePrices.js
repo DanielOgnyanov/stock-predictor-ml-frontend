@@ -1,54 +1,73 @@
 import React, { useEffect, useState } from "react";
 import "./LivePrices.css";
-
-const mockData = [
-  { symbol: "AAPL", name: "Apple Inc.", price: 189.35, change: +0.72 },
-  { symbol: "GOOGL", name: "Alphabet Inc.", price: 142.19, change: -0.54 },
-  { symbol: "AMZN", name: "Amazon.com Inc.", price: 125.87, change: +1.23 },
-  { symbol: "TSLA", name: "Tesla Inc.", price: 251.45, change: -0.88 },
-  { symbol: "MSFT", name: "Microsoft Corp.", price: 326.77, change: +0.45 },
-];
+import { fetchStocks } from "../../api/stockApi"; 
 
 function LivePrices() {
-  const [stocks, setStocks] = useState(mockData);
+  const [prices, setPrices] = useState([]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Simulate changes to see how look before the real call to Be
-      setStocks((prev) =>
-        prev.map((s) => ({
-          ...s,
-          price: +(s.price + (Math.random() - 0.5) * 0.5).toFixed(2),
-          change: +(Math.random() * 2 - 1).toFixed(2),
-        }))
-      );
-    }, 3000);
+    const updatePrices = async () => {
+      const data = await fetchStocks();
+
+      setPrices((prevPrices) => {
+        return data.map((newItem) => {
+          const oldItem = prevPrices.find((p) => p.symbol === newItem.symbol);
+          if (oldItem) {
+            const change = newItem.price - oldItem.price;
+            const changePercent = ((change / oldItem.price) * 100).toFixed(2);
+            return {
+              ...newItem,
+              change: change.toFixed(2),
+              changePercent,
+            };
+          } else {
+            return {
+              ...newItem,
+              change: "0.00",
+              changePercent: "0.00",
+            };
+          }
+        });
+      });
+    };
+
+    updatePrices();
+    const interval = setInterval(updatePrices, 5000); 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="live-container">
-      <h1 className="live-title">📊 Live Stock Prices</h1>
-      <div className="stock-table">
-        <div className="stock-header">
-          <span>Symbol</span>
-          <span>Company</span>
-          <span>Price ($)</span>
-          <span>Change (%)</span>
-        </div>
-        {stocks.map((stock) => (
-          <div
-            key={stock.symbol}
-            className={`stock-row ${stock.change >= 0 ? "up" : "down"}`}
-          >
-            <span>{stock.symbol}</span>
-            <span>{stock.name}</span>
-            <span>{stock.price.toFixed(2)}</span>
-            <span>{stock.change >= 0 ? "+" : ""}
-              {stock.change.toFixed(2)}%</span>
-          </div>
-        ))}
-      </div>
+      <h2>📈 Live Stock Prices</h2>
+      <table className="price-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Price ($)</th>
+            <th>Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          {prices.map((stock) => (
+            <tr key={stock.symbol}>
+              <td>{stock.symbol}</td>
+              <td>{stock.price.toFixed(2)}</td>
+              <td
+                className={
+                  stock.change > 0
+                    ? "up"
+                    : stock.change < 0
+                    ? "down"
+                    : "neutral"
+                }
+              >
+                {stock.change > 0 ? "▲" : stock.change < 0 ? "▼" : "–"}{" "}
+                {stock.changePercent}%
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
