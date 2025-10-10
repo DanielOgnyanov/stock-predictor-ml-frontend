@@ -1,54 +1,56 @@
-import React, { useState } from "react";
-import PricesTable from "../../components/PricesTable/PricesTable"; 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import "./LivePricesPage.css";
+import React, { useEffect, useState } from "react";
+import "./LivePrices.css";
 
-const testPrices = {
-  AAPL: [
-    { time: "09:00", price: 180 },
-    { time: "10:00", price: 182 },
-    { time: "11:00", price: 181 },
-    { time: "12:00", price: 185 },
-    { time: "13:00", price: 183 },
-  ],
-  TSLA: [
-    { time: "09:00", price: 250 },
-    { time: "10:00", price: 260 },
-    { time: "11:00", price: 258 },
-    { time: "12:00", price: 265 },
-    { time: "13:00", price: 262 },
-  ],
-};
+const mockData = [
+  { symbol: "AAPL", name: "Apple Inc.", price: 189.35, change: +0.72 },
+  { symbol: "GOOGL", name: "Alphabet Inc.", price: 142.19, change: -0.54 },
+  { symbol: "AMZN", name: "Amazon.com Inc.", price: 125.87, change: +1.23 },
+  { symbol: "TSLA", name: "Tesla Inc.", price: 251.45, change: -0.88 },
+  { symbol: "MSFT", name: "Microsoft Corp.", price: 326.77, change: +0.45 },
+];
 
-function LivePricesPage() {
-  const [selectedStock, setSelectedStock] = useState(null);
+function LivePrices() {
+  const [stocks, setStocks] = useState(mockData);
 
-  const handleRowClick = (symbol) => {
-    setSelectedStock(symbol);
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Simulate changes to see how look before the real call to Be
+      setStocks((prev) =>
+        prev.map((s) => ({
+          ...s,
+          price: +(s.price + (Math.random() - 0.5) * 0.5).toFixed(2),
+          change: +(Math.random() * 2 - 1).toFixed(2),
+        }))
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="live-prices-page">
-      <h2 className="page-title">📊 Live Stock Prices</h2>
-
-      <PricesTable onRowClick={handleRowClick} />
-
-      {selectedStock && (
-        <div className="chart-section">
-          <h3>{selectedStock} - Price Trend</h3>
-          <ResponsiveContainer width="100%" height={400}>
-            <LineChart data={testPrices[selectedStock]}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="time" />
-              <YAxis domain={["auto", "auto"]} />
-              <Tooltip />
-              <Line type="monotone" dataKey="price" stroke="#4caf50" strokeWidth={2} dot={false} />
-            </LineChart>
-          </ResponsiveContainer>
+    <div className="live-container">
+      <h1 className="live-title">📊 Live Stock Prices</h1>
+      <div className="stock-table">
+        <div className="stock-header">
+          <span>Symbol</span>
+          <span>Company</span>
+          <span>Price ($)</span>
+          <span>Change (%)</span>
         </div>
-      )}
+        {stocks.map((stock) => (
+          <div
+            key={stock.symbol}
+            className={`stock-row ${stock.change >= 0 ? "up" : "down"}`}
+          >
+            <span>{stock.symbol}</span>
+            <span>{stock.name}</span>
+            <span>{stock.price.toFixed(2)}</span>
+            <span>{stock.change >= 0 ? "+" : ""}
+              {stock.change.toFixed(2)}%</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-export default LivePricesPage;
+export default LivePrices;
