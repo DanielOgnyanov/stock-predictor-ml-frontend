@@ -9,6 +9,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Homepage from "./pages/Homepage/Homepage"
 import Predict from "./pages/Predict/Predict"
 import GlobalBackground from "./components/GlobalBackground/GlobalBackground";
+import LivePrices from "./pages/LivePrices/LivePrices";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/homepage" element={<Homepage />} />
           <Route path="/predict" element={<Predict />} />
+          <Route path="livePrices" element={<LivePrices />} />
         </Routes>
       </Router>
     </AuthProvider>
