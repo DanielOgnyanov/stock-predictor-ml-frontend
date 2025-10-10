@@ -1,23 +1,65 @@
-.live-prices-page {
-  padding: 20px;
+.live-container {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 
-.page-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #222;
+.live-title {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #00d4ff;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+  letter-spacing: 1px;
 }
 
-.chart-section {
-  margin-top: 30px;
-  padding: 20px;
-  background: #fff;
+.stock-table {
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+  overflow: hidden;
 }
 
-.chart-section h3 {
-  margin-bottom: 15px;
-  font-size: 1.4rem;
-  color: #333;
+.stock-header, .stock-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+  padding: 14px 20px;
+  align-items: center;
+}
+
+.stock-header {
+  background: rgba(0, 212, 255, 0.1);
+  font-weight: bold;
+  color: #00d4ff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stock-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease;
+}
+
+.stock-row:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stock-row.up span:last-child {
+  color: #00ff88;
+}
+
+.stock-row.down span:last-child {
+  color: #ff4d4d;
+}
+
+@media (max-width: 700px) {
+  .stock-header, .stock-row {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  .stock-header span:nth-child(2),
+  .stock-row span:nth-child(2) {
+    display: none;
+  }
 }
