@@ -16,20 +16,20 @@ export default function Prices() {
 
   return (
     <section className="prices">
-      <h2>Stock Prices</h2>
+      <h2>📈 Stock Prices</h2>
       <div className="prices-container">
-        <table className="prices-table">
+        <table className="price-table">
           <thead>
             <tr>
               <th>Symbol</th>
-              <th>Open (USD)</th>
+              <th>Open ($)</th>
             </tr>
           </thead>
           <tbody>
             {data.map((stock, index) => (
               <tr key={index}>
                 <td>{stock.symbol}</td>
-                <td>{stock.open}</td>
+                <td>{Number(stock.open).toFixed(2)}</td>
               </tr>
             ))}
           </tbody>
