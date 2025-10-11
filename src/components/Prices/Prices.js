@@ -22,14 +22,14 @@ export default function Prices() {
           <thead>
             <tr>
               <th>Symbol</th>
-              <th>Price (USD)</th>
+              <th>Open (USD)</th>
             </tr>
           </thead>
           <tbody>
             {data.map((stock, index) => (
               <tr key={index}>
                 <td>{stock.symbol}</td>
-                <td>{stock.price}</td>
+                <td>{stock.open}</td>
               </tr>
             ))}
           </tbody>
