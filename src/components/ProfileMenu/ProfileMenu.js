@@ -52,7 +52,7 @@ const ProfileMenu = () => {
                         <>
                             <button onClick={() => navigate("/settings")}>⚙️ Settings</button>
 
-                            {/* Theme Toggle */}
+                            
                             <div className="theme-toggle" onClick={toggleTheme}>
                                 <div className={`toggle-track ${darkMode ? "dark" : "light"}`}>
                                     <div className="toggle-thumb">
@@ -75,7 +75,7 @@ const ProfileMenu = () => {
                             <button onClick={() => navigate("/login")}>🔐 Login</button>
                             <button onClick={() => navigate("/register")}>📝 Register</button>
 
-                            {/* Theme Toggle */}
+                        
                             <div className="theme-toggle" onClick={toggleTheme}>
                                 <div className={`toggle-track ${darkMode ? "dark" : "light"}`}>
                                     <div className="toggle-thumb">
@@ -84,7 +84,7 @@ const ProfileMenu = () => {
                                 </div>
                             </div>
 
-                            <button onClick={() => navigate("/settings")}>⚙️ Settings</button>
+                            
                         </>
                     )}
                 </div>
