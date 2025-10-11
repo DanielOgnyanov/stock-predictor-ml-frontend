@@ -43,9 +43,16 @@ const ProfileMenu = () => {
           {isLoggedIn ? (
             <>
               <button onClick={() => navigate("/settings")}>⚙️ Settings</button>
-              <button onClick={toggleTheme}>
-                {darkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
-              </button>
+
+              {/* Theme Toggle */}
+              <div className="theme-toggle" onClick={toggleTheme}>
+                <div className={`toggle-track ${darkMode ? "dark" : "light"}`}>
+                  <div className="toggle-thumb">
+                    {darkMode ? "🌙" : "🌞"}
+                  </div>
+                </div>
+              </div>
+
               <button
                 onClick={() => {
                   logout();
@@ -59,9 +66,16 @@ const ProfileMenu = () => {
             <>
               <button onClick={() => navigate("/login")}>🔐 Login</button>
               <button onClick={() => navigate("/register")}>📝 Register</button>
-              <button onClick={toggleTheme}>
-                {darkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
-              </button>
+
+              {/* Theme Toggle */}
+              <div className="theme-toggle" onClick={toggleTheme}>
+                <div className={`toggle-track ${darkMode ? "dark" : "light"}`}>
+                  <div className="toggle-thumb">
+                    {darkMode ? "🌙" : "🌞"}
+                  </div>
+                </div>
+              </div>
+
               <button onClick={() => navigate("/settings")}>⚙️ Settings</button>
             </>
           )}

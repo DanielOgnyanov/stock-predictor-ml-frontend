@@ -77,7 +77,55 @@
   }
 }
 
-/* Optional dark theme toggle styles */
+
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.toggle-track {
+  width: 55px;
+  height: 28px;
+  background-color: #777; 
+  border-radius: 20px;
+  position: relative;
+  transition: background-color 0.3s ease;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.toggle-track.dark {
+  background-color: #00c853; 
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-track.dark .toggle-thumb {
+  left: calc(100% - 27px);
+  box-shadow: 0 0 8px #00ff99;
+}
+
+.theme-toggle:hover .toggle-track {
+  box-shadow: 0 0 8px rgba(0, 255, 100, 0.4);
+}
+
+
 body.dark-theme {
   background-color: #0a0a0a;
   color: #ddd;
