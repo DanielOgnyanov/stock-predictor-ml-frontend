@@ -12,15 +12,16 @@ const ProfileMenu = () => {
 
     const toggleMenu = () => setOpen((prev) => !prev);
 
-    const handleClickOutside = (e) => {
-        if (menuRef.current && !menuRef.current.contains(e.target)) setOpen(false);
-    };
+    
 
     useEffect(() => {
+       
         const savedTheme = localStorage.getItem("theme");
         const isDark = savedTheme === "dark";
         setDarkMode(isDark);
         document.body.classList.toggle("dark-theme", isDark);
+
+        
     }, []);
 
     const toggleTheme = () => {
