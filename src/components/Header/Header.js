@@ -2,6 +2,7 @@ import "./Header.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext"; 
 import { useNavigate } from "react-router-dom";
+import ProfileMenu from "../ProfileMenu/ProfileMenu";
 
 function Header() {
   const { isLoggedIn, logout } = useContext(AuthContext);
@@ -29,7 +30,9 @@ function Header() {
   };
 
   return (
+    
     <header className="header">
+      <ProfileMenu />
       <div className="logo" onClick={handleLogoClick}>
         📈 Stock Predictor
       </div>
