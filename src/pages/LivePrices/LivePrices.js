@@ -43,7 +43,9 @@ function LivePrices() {
         <thead>
           <tr>
             <th>Symbol</th>
-            <th>Price ($)</th>
+            <th>Open ($)</th>
+            <th>High ($)</th>
+            <th>Low ($)</th>
             <th>Change</th>
           </tr>
         </thead>
@@ -51,7 +53,9 @@ function LivePrices() {
           {prices.map((stock) => (
             <tr key={stock.symbol}>
               <td>{stock.symbol}</td>
-              <td>{stock.price.toFixed(2)}</td>
+              <td>{stock.open.toFixed(2)}</td>
+              <td>{stock.high.toFixed(2)}</td>
+              <td>{stock.low.toFixed(2)}</td>
               <td
                 className={
                   stock.change > 0
