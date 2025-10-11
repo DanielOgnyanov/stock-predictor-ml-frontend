@@ -16,8 +16,9 @@ export default function Prices() {
 
   return (
     <section className="prices">
-      <h2>📈 Stock Prices</h2>
+     
       <div className="prices-container">
+         <h2>📈 Stock Prices</h2>
         <table className="price-table">
           <thead>
             <tr>
