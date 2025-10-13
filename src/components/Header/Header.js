@@ -45,9 +45,7 @@ function Header() {
                   {link.label}
                 </a>
               ))}
-              <button onClick={logout} className="logout-btn">
-                Logout
-              </button>
+             
             </>
           ) : (
             guestLinks.map((link) => (
