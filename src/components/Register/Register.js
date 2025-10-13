@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react"; 
 import "./Register.css";
 import { authRegister } from "../../api/authRegister";
 import { useNavigate } from "react-router-dom";
-
+import { AuthContext } from "../../context/AuthContext"; 
 
 function Register() {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext); 
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -13,7 +15,6 @@ function Register() {
     password: "",
     confirmPassword: "",
   });
-
 
   const handleChange = (e) => {
     setFormData({
@@ -39,10 +40,19 @@ function Register() {
       });
       console.log("User registered:", response);
       alert("Registration successful!");
-      navigate("/homepage");
+
+     
+      const token =
+        response?.token || response?.jwt || response?.data?.token || null; 
+
+      if (token) {
+        login(token); 
+      }
+
+      navigate("/homepage"); 
     } catch (error) {
       console.error("Registration failed:", error);
-      alert("Registration failed: " + error);
+      alert("Registration failed: " + error.message);
     }
   };
 
