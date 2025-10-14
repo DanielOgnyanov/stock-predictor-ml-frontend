@@ -10,8 +10,8 @@ function Header() {
 
   const guestLinks = [
     { label: "Live Prices", path: "livePrices" },
-    { label: "Login", path: "login" },
-    { label: "Register", path: "register" },
+    { label: "News", path: "news" }
+    
   ];
 
   const authLinks = [
