@@ -19,7 +19,7 @@ const Hero = () => {
           decisions.
         </p>
          <button className="hero-btn" onClick={handleRegisterClick}>
-          Register
+          Get Started
         </button>
       </div>
     </section>
