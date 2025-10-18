@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "./PriceHistory.css";
-import { fetchPriceHistory } from "../../api/fetchPriceHistory"; 
+import { fetchPriceHistory } from "../../api/stockApi"; 
 
 export default function PriceHistory() {
   const [historyData, setHistoryData] = useState([]);
