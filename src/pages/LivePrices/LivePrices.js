@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./LivePrices.css";
 import { fetchStocks } from "../../api/stockApi"; 
+import PriceHistory from "../../components/PriceHistory/PriceHistory";
 
 function LivePrices() {
   const [prices, setPrices] = useState([]);
@@ -72,6 +73,10 @@ function LivePrices() {
           ))}
         </tbody>
       </table>
+
+      <div className="history-section">
+        <PriceHistory />
+      </div>
     </div>
   );
 }
