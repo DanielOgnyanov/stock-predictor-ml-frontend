@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./LivePrices.css";
-import { fetchStocks } from "../../api/stockApi"; 
+import { fetchStocks } from "../../api/stockApi";
 import PriceHistory from "../../components/PriceHistory/PriceHistory";
 
 function LivePrices() {
@@ -10,8 +10,8 @@ function LivePrices() {
     const updatePrices = async () => {
       const data = await fetchStocks();
 
-      setPrices((prevPrices) => {
-        return data.map((newItem) => {
+      setPrices((prevPrices) =>
+        data.map((newItem) => {
           const oldItem = prevPrices.find((p) => p.symbol === newItem.symbol);
           if (oldItem) {
             const change = newItem.price - oldItem.price;
@@ -28,18 +28,19 @@ function LivePrices() {
               changePercent: "0.00",
             };
           }
-        });
-      });
+        })
+      );
     };
 
     updatePrices();
-    const interval = setInterval(updatePrices, 5000); 
+    const interval = setInterval(updatePrices, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="live-container">
       <h2>📈 Live Stock Prices</h2>
+
       <table className="price-table">
         <thead>
           <tr>
@@ -74,8 +75,17 @@ function LivePrices() {
         </tbody>
       </table>
 
+     
       <div className="history-section">
-        <PriceHistory />
+        <h3>📊 Price History</h3>
+        <div className="chart-grid">
+          {prices.map((stock) => (
+            <div className="chart-card" key={stock.symbol}>
+              <h4>{stock.symbol}</h4>
+              <PriceHistory symbol={stock.symbol} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
