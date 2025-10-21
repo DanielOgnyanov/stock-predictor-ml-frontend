@@ -1,3 +1,10 @@
+.live-container {
+
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
 .history-section {
   margin-top: 80px;
   text-align: center;
@@ -8,6 +15,8 @@
   font-size: 1.8rem;
   margin-bottom: 30px;
 }
+
+
 
 
 .chart-grid {
