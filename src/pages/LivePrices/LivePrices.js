@@ -39,7 +39,7 @@ function LivePrices() {
 
   return (
     <div className="live-container">
-      <h2>📈 Live Stock Prices</h2>
+      <h2 className="title-live-container">📈 Live Stock Prices</h2>
 
       <table className="price-table">
         <thead>
