@@ -29,7 +29,7 @@ export default function PriceHistory() {
 
   return (
     <section className="price-history-section">
-      <h2 className="price-history-title">📈 Price History</h2>
+    
 
       {historyData.length === 0 ? (
         <p className="loading">Loading price history...</p>
@@ -37,7 +37,7 @@ export default function PriceHistory() {
         <div className="charts-grid">
           {historyData.map((stock, index) => (
             <div className="chart-card" key={index}>
-              <div className="symbol-name">{stock.symbol}</div>
+         
               <ResponsiveContainer width="100%" height={250}>
                 <LineChart data={stock.open_prices}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />

@@ -4,19 +4,13 @@
   text-align: center;
 }
 
-.price-history-title {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  color: #333;
-}
-
 .loading {
   color: #555;
   font-size: 1rem;
   text-align: center;
 }
 
-/* Grid layout for charts */
+
 .charts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -24,7 +18,6 @@
   justify-items: center;
 }
 
-/* Chart card styling */
 .chart-card {
   width: 100%;
   max-width: 400px;
@@ -45,7 +38,7 @@
   text-align: center;
 }
 
-/* Responsive tweaks */
+
 @media (max-width: 768px) {
   .charts-grid {
     grid-template-columns: 1fr;
