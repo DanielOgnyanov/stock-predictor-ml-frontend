@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./LivePrices.css";
 import { fetchStocks } from "../../api/stockApi";
-import PriceHistory from "../../components/PriceHistory/PriceHistory";
+import { useNavigate } from "react-router-dom";
 
 function LivePrices() {
   const [prices, setPrices] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const updatePrices = async () => {
@@ -37,6 +38,10 @@ function LivePrices() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleSymbolClick = (symbol) => {
+    navigate(`/price-history/${symbol}`);
+  };
+
   return (
     <div className="live-container">
       <h2 className="title-live-container">📈 Live Stock Prices</h2>
@@ -54,7 +59,12 @@ function LivePrices() {
         <tbody>
           {prices.map((stock) => (
             <tr key={stock.symbol}>
-              <td>{stock.symbol}</td>
+              <td
+                className="clickable-symbol"
+                onClick={() => handleSymbolClick(stock.symbol)}
+              >
+                {stock.symbol}
+              </td>
               <td>{stock.open.toFixed(2)}</td>
               <td>{stock.high.toFixed(2)}</td>
               <td>{stock.low.toFixed(2)}</td>
@@ -74,19 +84,6 @@ function LivePrices() {
           ))}
         </tbody>
       </table>
-
-     
-      <div className="history-section">
-        <h3>📊 Price History</h3>
-        <div className="chart-grid">
-          {prices.map((stock) => (
-            <div className="chart-card" key={stock.symbol}>
-              <h4>{stock.symbol}</h4>
-              <PriceHistory symbol={stock.symbol} />
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

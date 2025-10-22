@@ -24,6 +24,15 @@
 }
 
 
+.clickable-symbol {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.clickable-symbol:hover {
+  color: #0056b3;
+}
 
 
 .chart-grid {
