@@ -26,11 +26,12 @@
 
 
 .clickable-symbol {
-  font: bold;
+  font-weight: bold;      
   color: #ffffff;
   cursor: pointer;
   text-decoration: underline;
 }
+
 
 .clickable-symbol:hover {
   color: #595f64;
