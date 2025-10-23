@@ -10,6 +10,7 @@ import Homepage from "./pages/Homepage/Homepage"
 import Predict from "./pages/Predict/Predict"
 import GlobalBackground from "./components/GlobalBackground/GlobalBackground";
 import LivePrices from "./pages/LivePrices/LivePrices";
+import PriceHistory from "./components/PriceHistory/PriceHistory";
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/homepage" element={<Homepage />} />
           <Route path="/predict" element={<Predict />} />
-          <Route path="livePrices" element={<LivePrices />} />
+          <Route path="/livePrices" element={<LivePrices />} />
+          <Route path="/price-history/:symbol" element={<PriceHistory />} />
         </Routes>
       </Router>
     </AuthProvider>
