@@ -1,17 +1,16 @@
 import "./Header.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext"; 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; 
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
 
 function Header() {
-  const { isLoggedIn, logout } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const guestLinks = [
     { label: "Live Prices", path: "livePrices" },
     { label: "News", path: "news" }
-    
   ];
 
   const authLinks = [
@@ -21,39 +20,23 @@ function Header() {
     { label: "Live Prices", path: "livePrices" },
   ];
 
-    const handleLogoClick = () => {
-    if (isLoggedIn) {
-      navigate("/homepage");
-    } else {
-      navigate("/");
-    }
+  const handleLogoClick = () => {
+    navigate(isLoggedIn ? "/homepage" : "/");
   };
 
   return (
-    
     <header className="header">
       <ProfileMenu />
       <div className="logo" onClick={handleLogoClick}>
         📈 Stock Predictor
       </div>
       <nav className="nav">
-        {isLoggedIn
-          ? (
-            <>
-              {authLinks.map((link) => (
-                <a key={link.label} href={link.path}>
-                  {link.label}
-                </a>
-              ))}
-             
-            </>
-          ) : (
-            guestLinks.map((link) => (
-              <a key={link.label} href={link.path}>
-                {link.label}
-              </a>
-            ))
-          )}
+       
+        {(isLoggedIn ? authLinks : guestLinks).map((link) => (
+          <Link key={link.label} to={`/${link.path}`}>
+            {link.label}
+          </Link>
+        ))}
       </nav>
     </header>
   );
