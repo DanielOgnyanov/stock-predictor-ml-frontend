@@ -25,13 +25,13 @@
 
 
 .clickable-symbol {
-  color: #00b7ff;
+  color: #ffffff;
   cursor: pointer;
   text-decoration: underline;
 }
 
 .clickable-symbol:hover {
-  color: #1a6bc2;
+  color: #595f64;
 }
 
 
