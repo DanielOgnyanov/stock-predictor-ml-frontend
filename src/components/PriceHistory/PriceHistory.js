@@ -19,7 +19,14 @@ function PriceHistory() {
     const loadHistory = async () => {
       try {
         const result = await fetchPriceHistory(symbol);
-        setData(result);
+
+        
+        const formatted = result.map((item) => ({
+          ...item,
+          date: item.date.slice(0, 16),
+        }));
+
+        setData(formatted);
       } catch (error) {
         console.error("Error fetching price history:", error);
       }
@@ -29,7 +36,10 @@ function PriceHistory() {
 
   return (
     <div className="price-history-wrapper">
-      <ResponsiveContainer width="90%" height="80%">
+      
+      <h2 className="price-history-title">{symbol} - Price History</h2>
+
+      <ResponsiveContainer width="80%" height="50%">
         <LineChart data={data}>
           <XAxis
             dataKey="date"

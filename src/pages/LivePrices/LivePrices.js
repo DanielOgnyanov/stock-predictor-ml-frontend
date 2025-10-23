@@ -7,36 +7,35 @@ function LivePrices() {
   const [prices, setPrices] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const updatePrices = async () => {
-      const data = await fetchStocks();
+ useEffect(() => {
+  let prevPrices = {};
 
-      setPrices((prevPrices) =>
-        data.map((newItem) => {
-          const oldItem = prevPrices.find((p) => p.symbol === newItem.symbol);
-          if (oldItem) {
-            const change = newItem.price - oldItem.price;
-            const changePercent = ((change / oldItem.price) * 100).toFixed(2);
-            return {
-              ...newItem,
-              change: change.toFixed(2),
-              changePercent,
-            };
-          } else {
-            return {
-              ...newItem,
-              change: "0.00",
-              changePercent: "0.00",
-            };
-          }
-        })
-      );
-    };
+  const updatePrices = async () => {
+    const data = await fetchStocks();
 
-    updatePrices();
-    const interval = setInterval(updatePrices, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    const updated = data.map((newItem) => {
+      const oldPrice = prevPrices[newItem.symbol] ?? newItem.open; // fallback if first run
+      const change = newItem.open - oldPrice;
+      const changePercent = ((change / oldPrice) * 100).toFixed(2);
+
+      
+      prevPrices[newItem.symbol] = newItem.open;
+
+      return {
+        ...newItem,
+        change: change.toFixed(2),
+        changePercent,
+      };
+    });
+
+    setPrices(updated);
+  };
+
+  updatePrices();
+  const interval = setInterval(updatePrices, 5000);
+  return () => clearInterval(interval);
+}, []);
+
 
   const handleSymbolClick = (symbol) => {
     navigate(`/price-history/${symbol}`);
