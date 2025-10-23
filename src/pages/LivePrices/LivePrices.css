@@ -18,7 +18,7 @@
 }
 
 .history-section h3 {
-  font: bold;
+  
   color: #ffffff;
   font-size: 1.8rem;
   margin-bottom: 130px;
@@ -26,6 +26,7 @@
 
 
 .clickable-symbol {
+  font: bold;
   color: #ffffff;
   cursor: pointer;
   text-decoration: underline;
