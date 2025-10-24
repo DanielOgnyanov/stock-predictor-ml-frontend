@@ -7,34 +7,29 @@ function LivePrices() {
   const [prices, setPrices] = useState([]);
   const navigate = useNavigate();
 
- useEffect(() => {
-  let prevPrices = {};
+  useEffect(() => {
+    const updatePrices = async () => {
+      const data = await fetchStocks();
 
-  const updatePrices = async () => {
-    const data = await fetchStocks();
+      const updated = data.map((stock) => {
+        // Calculate change relative to open and high
+        const change = stock.high - stock.open;
+        const changePercent = ((change / stock.open) * 100).toFixed(2);
 
-    const updated = data.map((newItem) => {
-      const oldPrice = prevPrices[newItem.symbol] ?? newItem.open; // fallback if first run
-      const change = newItem.open - oldPrice;
-      const changePercent = ((change / oldPrice) * 100).toFixed(2);
+        return {
+          ...stock,
+          change: change.toFixed(2),
+          changePercent,
+        };
+      });
 
-      
-      prevPrices[newItem.symbol] = newItem.open;
+      setPrices(updated);
+    };
 
-      return {
-        ...newItem,
-        change: change.toFixed(2),
-        changePercent,
-      };
-    });
-
-    setPrices(updated);
-  };
-
-  updatePrices();
-  const interval = setInterval(updatePrices, 5000);
-  return () => clearInterval(interval);
-}, []);
+    updatePrices();
+    const interval = setInterval(updatePrices, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
 
   const handleSymbolClick = (symbol) => {
@@ -72,13 +67,20 @@ function LivePrices() {
                   stock.change > 0
                     ? "up"
                     : stock.change < 0
-                    ? "down"
-                    : "neutral"
+                      ? "down"
+                      : "neutral"
                 }
               >
-                {stock.change > 0 ? "▲" : stock.change < 0 ? "▼" : "–"}{" "}
-                {stock.changePercent}%
+                <span
+                  style={{
+                    color: stock.change > 0 ? "#4CAF50" : stock.change < 0 ? "#F44336" : "#aaa",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {stock.change > 0 ? "▲" : stock.change < 0 ? "▼" : "–"} {stock.changePercent}%
+                </span>
               </td>
+
             </tr>
           ))}
         </tbody>
