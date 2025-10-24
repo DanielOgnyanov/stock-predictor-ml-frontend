@@ -20,16 +20,15 @@ function PriceHistory() {
       try {
         const result = await fetchPriceHistory(symbol);
 
-
         const formatted = result.map((item) => {
           const d = new Date(item.date);
+          const monthName = d.toLocaleString("en-US", { month: "short" });
           const day = String(d.getDate()).padStart(2, "0");
-          const month = String(d.getMonth() + 1).padStart(2, "0");
           const year = d.getFullYear();
 
           return {
             ...item,
-            date: `${day}/${month}/${year}`,
+            date: `${monthName} ${day}, ${year}`, 
           };
         });
 
@@ -41,30 +40,19 @@ function PriceHistory() {
     loadHistory();
   }, [symbol]);
 
+
   return (
     <div className="price-history-wrapper">
-
       <h2 className="price-history-title">{symbol} - Price History</h2>
 
       <ResponsiveContainer width="80%" height="50%">
         <LineChart data={data}>
           <XAxis
             dataKey="date"
-            tick={{ fill: "#aaa" }}
+            tick={{ fill: "transparent" }}
             axisLine={{ stroke: "#444" }}
             tickLine={{ stroke: "#444" }}
-            tickFormatter={(date) => {
-
-              if (!date) return "";
-              const [day, month, year] = date.split("/").map(Number);
-              if (!month || isNaN(month)) return "";
-              const monthName = new Date(0, month - 1).toLocaleString("en-US", {
-                month: "short",
-              });
-              return monthName;
-            }}
           />
-
 
           <YAxis
             tick={{ fill: "#aaa" }}
@@ -78,14 +66,29 @@ function PriceHistory() {
               color: "#aaffaa",
             }}
             labelStyle={{ color: "#aaffaa" }}
+            formatter={(value) => [`$${Number(value).toFixed(2)}`, "Price"]}
+            labelFormatter={(label) => {
+              const d = new Date(label);
+              if (isNaN(d)) return label;
+              const monthName = d.toLocaleString("en-US", { month: "short" });
+              const day = String(d.getDate()).padStart(2, "0");
+              const year = d.getFullYear();
+              return `${monthName} ${day}, ${year}`;
+            }}
           />
+
+
+
           <Line
             type="monotone"
             dataKey="price"
             stroke="#90ee90"
             strokeWidth={2}
             dot={false}
+            activeDot={{ r: 5, stroke: "#ffffff", strokeWidth: 2, fill: "#90ee90" }}
+            connectNulls={true}
           />
+
         </LineChart>
       </ResponsiveContainer>
     </div>
