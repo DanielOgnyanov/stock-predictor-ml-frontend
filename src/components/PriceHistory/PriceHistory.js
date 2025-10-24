@@ -20,11 +20,18 @@ function PriceHistory() {
       try {
         const result = await fetchPriceHistory(symbol);
 
-        
-        const formatted = result.map((item) => ({
-          ...item,
-          date: item.date.slice(0, 16),
-        }));
+
+        const formatted = result.map((item) => {
+          const d = new Date(item.date);
+          const day = String(d.getDate()).padStart(2, "0");
+          const month = String(d.getMonth() + 1).padStart(2, "0");
+          const year = d.getFullYear();
+
+          return {
+            ...item,
+            date: `${day}/${month}/${year}`,
+          };
+        });
 
         setData(formatted);
       } catch (error) {
@@ -36,7 +43,7 @@ function PriceHistory() {
 
   return (
     <div className="price-history-wrapper">
-      
+
       <h2 className="price-history-title">{symbol} - Price History</h2>
 
       <ResponsiveContainer width="80%" height="50%">
@@ -46,7 +53,19 @@ function PriceHistory() {
             tick={{ fill: "#aaa" }}
             axisLine={{ stroke: "#444" }}
             tickLine={{ stroke: "#444" }}
+            tickFormatter={(date) => {
+
+              if (!date) return "";
+              const [day, month, year] = date.split("/").map(Number);
+              if (!month || isNaN(month)) return "";
+              const monthName = new Date(0, month - 1).toLocaleString("en-US", {
+                month: "short",
+              });
+              return monthName;
+            }}
           />
+
+
           <YAxis
             tick={{ fill: "#aaa" }}
             axisLine={{ stroke: "#444" }}
