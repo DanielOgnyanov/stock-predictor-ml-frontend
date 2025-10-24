@@ -43,7 +43,7 @@ function PriceHistory() {
 
   return (
     <div className="price-history-wrapper">
-      <h2 className="price-history-title">{symbol} - Price History</h2>
+      <h2 className="price-history-title">{symbol} - Open Price History</h2>
 
       <ResponsiveContainer width="80%" height="50%">
         <LineChart data={data}>
