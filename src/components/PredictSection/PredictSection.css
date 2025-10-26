@@ -1,0 +1,38 @@
+.predict-section {
+  width: 100%;
+  max-width: 320px;
+  margin-top: 20px;
+  align-self: flex-start; 
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.predict-text {
+  color: #ddd;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.predict-text .highlight {
+  color: #aaffaa;
+  font-weight: 600;
+}
+
+.predict-button {
+  background-color: #90ee90;
+  color: #1b1b1b;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.predict-button:hover {
+  background-color: #76d976;
+  transform: scale(1.05);
+}
