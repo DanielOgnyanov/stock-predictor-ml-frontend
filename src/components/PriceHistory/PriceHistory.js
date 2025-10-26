@@ -10,10 +10,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "./PriceHistory.css";
+import PredictSection from "../PredictSection/PredictSection";
+import {AuthContext} from "../../context/AuthContext";
 
 function PriceHistory() {
   const { symbol } = useParams();
   const [data, setData] = useState([]);
+  const { isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
     const loadHistory = async () => {
@@ -91,6 +94,7 @@ function PriceHistory() {
 
         </LineChart>
       </ResponsiveContainer>
+      <PredictSection isRegistered={isLoggedIn} />
     </div>
   );
 }
