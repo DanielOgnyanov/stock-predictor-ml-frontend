@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./PredictSection.css";
 
-function PredictSection({ isRegistered }) {
+function PredictSection({ isLoggedIn }) {
   const navigate = useNavigate();
 
   const handleClick = () => {

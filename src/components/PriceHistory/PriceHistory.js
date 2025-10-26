@@ -94,7 +94,7 @@ function PriceHistory() {
 
         </LineChart>
       </ResponsiveContainer>
-      <PredictSection isRegistered={isLoggedIn} />
+      <PredictSection isLoggedIn={isLoggedIn} />
     </div>
   );
 }
