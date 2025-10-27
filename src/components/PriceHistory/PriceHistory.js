@@ -11,7 +11,8 @@ import {
 } from "recharts";
 import "./PriceHistory.css";
 import PredictSection from "../PredictSection/PredictSection";
-import {AuthContext} from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
+import InfoPriceAnalyzes from "../InfoPriceAnalyzes/InfoPriceAnalyzes";
 
 
 
@@ -33,7 +34,7 @@ function PriceHistory() {
 
           return {
             ...item,
-            date: `${monthName} ${day}, ${year}`, 
+            date: `${monthName} ${day}, ${year}`,
           };
         });
 
@@ -96,7 +97,11 @@ function PriceHistory() {
 
         </LineChart>
       </ResponsiveContainer>
-      <PredictSection isLoggedIn={isLoggedIn} />
+      <div className="bottom-sections-row">
+        <PredictSection isRegistered={isLoggedIn} />
+        <InfoPriceAnalyzes />
+      </div>
+
     </div>
   );
 }

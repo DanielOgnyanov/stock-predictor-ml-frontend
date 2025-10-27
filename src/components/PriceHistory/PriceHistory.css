@@ -39,3 +39,17 @@
   text-align: center; 
   margin-bottom: 70px;
 }
+
+
+.bottom-sections-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;  
+  align-items: stretch;     
+  gap: 20px;                
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
