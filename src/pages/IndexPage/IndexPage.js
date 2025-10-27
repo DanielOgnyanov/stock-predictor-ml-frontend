@@ -13,7 +13,7 @@ export default function IndexPage() {
       <Prices />
       <Features />
       
-      <Footer />
+     
     </>
   );
 }

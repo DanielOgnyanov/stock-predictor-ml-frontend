@@ -11,6 +11,7 @@ import Predict from "./pages/Predict/Predict"
 import GlobalBackground from "./components/GlobalBackground/GlobalBackground";
 import LivePrices from "./pages/LivePrices/LivePrices";
 import PriceHistory from "./components/PriceHistory/PriceHistory";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/livePrices" element={<LivePrices />} />
           <Route path="/price-history/:symbol" element={<PriceHistory />} />
         </Routes>
+        <Footer />
       </Router>
     </AuthProvider>
   );
