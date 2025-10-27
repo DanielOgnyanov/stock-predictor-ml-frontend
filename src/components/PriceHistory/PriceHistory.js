@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { fetchPriceHistory } from "../../api/stockApi";
 import {
@@ -12,6 +12,8 @@ import {
 import "./PriceHistory.css";
 import PredictSection from "../PredictSection/PredictSection";
 import {AuthContext} from "../../context/AuthContext";
+
+
 
 function PriceHistory() {
   const { symbol } = useParams();
