@@ -18,17 +18,21 @@ function App() {
     <AuthProvider>
       <Router>
         <GlobalBackground />
-        <Header />
-        <Routes>
-          <Route path="/" element={<IndexPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/homepage" element={<Homepage />} />
-          <Route path="/predict" element={<Predict />} />
-          <Route path="/livePrices" element={<LivePrices />} />
-          <Route path="/price-history/:symbol" element={<PriceHistory />} />
-        </Routes>
-        <Footer />
+        <div className="app-wrapper">
+          <Header />
+          <main className="app-content">
+            <Routes>
+              <Route path="/" element={<IndexPage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/homepage" element={<Homepage />} />
+              <Route path="/predict" element={<Predict />} />
+              <Route path="/livePrices" element={<LivePrices />} />
+              <Route path="/price-history/:symbol" element={<PriceHistory />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </Router>
     </AuthProvider>
   );
