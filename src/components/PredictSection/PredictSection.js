@@ -6,7 +6,7 @@ function PredictSection({ isLoggedIn }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (isRegistered) {
+    if (isLoggedIn) {
       navigate("/predict");
     } else {
       navigate("/register");
