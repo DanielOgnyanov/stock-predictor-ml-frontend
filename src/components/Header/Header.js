@@ -28,7 +28,7 @@ function Header() {
     <header className="header">
       <ProfileMenu />
       <div className="logo" onClick={handleLogoClick}>
-        📈 Stock Predictor
+        Stock Predictor ML
       </div>
       <nav className="nav">
        
