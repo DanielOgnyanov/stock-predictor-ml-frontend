@@ -1,67 +1,76 @@
 .live-container {
-
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0 20px;
 }
 
 .title-live-container {
-   text-align: center;
-   font-size: 30px;
-   margin-top: 80px;
-   margin-bottom: 50px;
-}
-
-
-.history-section {
-  margin-top: 100px;
   text-align: center;
-}
-
-.history-section h3 {
-  
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 80px;
+  margin-bottom: 50px;
   color: #ffffff;
-  font-size: 1.8rem;
-  margin-bottom: 130px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
+/* Table styling for glossy effect */
+.price-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px; /* spacing between rows */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.price-table thead tr {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.price-table th, .price-table td {
+  padding: 12px 20px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.price-table tbody tr {
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  border-radius: 12px;
+}
+
+.price-table tbody tr:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+}
 
 .clickable-symbol {
-  font-weight: bold;      
-  color: #ffffff;
+  font-weight: bold;
+  color: #00d4ff;
   cursor: pointer;
-  text-decoration: underline;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 
 .clickable-symbol:hover {
-  color: #4081b6;
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff;
 }
 
-
-.chart-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  justify-items: center;
+.up {
+  color: #4CAF50;
+  font-weight: bold;
 }
 
-.chart-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
-  width: 100%;
-  max-width: 380px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.down {
+  color: #F44336;
+  font-weight: bold;
 }
 
-.chart-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 25px rgba(0, 212, 255, 0.25);
-}
-
-.chart-card h4 {
-  color: #00d4ff;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
+.neutral {
+  color: #aaa;
+  font-weight: bold;
 }
