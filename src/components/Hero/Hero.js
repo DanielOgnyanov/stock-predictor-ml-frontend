@@ -1,6 +1,6 @@
-import React from "react";
 import "./Hero.css";
 import { useNavigate } from "react-router-dom"; 
+import BlurText from "../BlurText/BlurText"; 
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -9,16 +9,29 @@ const Hero = () => {
     navigate("/register"); 
   };
 
-
   return (
     <section className="hero">
       <div className="hero-content">
-        <h1>Predict the Stock Market with our ML model</h1>
-        <p>
-          Get real-time predictions and insights to make smarter trading
-          decisions.
-        </p>
-         <button className="hero-btn" onClick={handleRegisterClick}>
+      
+        <BlurText
+          text="Predict the Stock Market with our ML Model."
+          animateBy="words"
+          direction="top"
+          delay={150}
+          className="hero-title"
+        />
+
+        
+        <BlurText
+          text="Get real-time predictions and insights to make smarter trading decisions."
+          animateBy="words"
+          direction="bottom"
+          delay={100}
+          fontSize="25px"
+          className="hero-subtitle"
+        />
+
+        <button className="hero-btn" onClick={handleRegisterClick}>
           Get Started
         </button>
       </div>
