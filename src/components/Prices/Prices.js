@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchStocks } from "../../api/stockApi";
 import "./Prices.css";
 
 export default function Prices() {
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getStocks = async () => {
@@ -14,27 +16,23 @@ export default function Prices() {
     getStocks();
   }, []);
 
+  const handleRegisterClick = () => {
+    navigate("/register");
+  };
+
   return (
     <section className="prices">
-     
-      <div className="prices-container">
-         <h2>📈 Stock Prices</h2>
-        <table className="price-table">
-          <thead>
-            <tr>
-              <th>Symbol</th>
-              <th>Open ($)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((stock, index) => (
-              <tr key={index}>
-                <td>{stock.symbol}</td>
-                <td>{Number(stock.open).toFixed(2)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <h2>Stock Open Prices</h2>
+      <div className="prices-cards">
+        {data.map((stock, index) => (
+          <div key={index} className="price-card">
+            <div className="stock-symbol">{stock.symbol}</div>
+            <div className="stock-price">${Number(stock.open).toFixed(2)}</div>
+            <button className="price-btn" onClick={handleRegisterClick}>
+              Get Started
+            </button>
+          </div>
+        ))}
       </div>
     </section>
   );

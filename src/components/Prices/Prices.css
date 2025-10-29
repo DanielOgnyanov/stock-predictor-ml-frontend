@@ -1,43 +1,89 @@
 .prices {
-  max-width: 850px;
-  width: 550px;
-  margin: 80px auto;
-  
-  padding: 35px 40px;
-  border-radius: 16px;
-  color: #ffffff;
-  text-align: center;
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
-  backdrop-filter: blur(10px);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.prices-container h2 {
-  margin-bottom: 65px;
-  font-size: 35px;
-  color: #ffffff;
+.prices h2 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
 }
 
-.price-table {
-  width: 100%;
-  border-collapse: collapse;
+.prices-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
 
-.price-table th {
-  background-color: #00d4ff;
-  color: #ffffff;
+.price-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+  width: 650px;
+  min-width: 250px;
+
+  padding: 0 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 255, 255, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.price-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 255, 255, 0.5);
+}
+
+.stock-symbol {
+  font-size: 1.2rem;
   font-weight: bold;
-  padding: 14px;
-  border-radius: 8px 8px 0 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
-.price-table td {
-  padding: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+.stock-price {
   font-size: 1.1rem;
 }
 
-.price-table tr:last-child td {
-  border-bottom: none;
+.price-btn {
+  background: rgba(0, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 1rem;
+ 
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.price-btn:hover {
+  background: rgba(0, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .price-card {
+    min-width: 180px;
+    max-width: 200px;
+  }
+
+  .stock-symbol {
+    font-size: 0.9rem;
+  }
+
+  .stock-price {
+    font-size: 0.8rem;
+  }
+
+  .price-btn {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
 }
