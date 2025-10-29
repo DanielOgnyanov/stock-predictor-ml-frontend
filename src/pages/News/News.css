@@ -1,0 +1,111 @@
+.news-section {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 212, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+    margin-top: 50px;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.news-section:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 212, 255, 0.35);
+    box-shadow: 0 12px 35px rgba(0, 212, 255, 0.3);
+}
+
+.news-header {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    color: #00d4ff;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.animated-letter {
+    display: inline-block;
+    animation: moveLeftRight 1.5s ease-in-out infinite alternate;
+}
+
+
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(6px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.news-cards {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.news-card {
+    background: rgba(112, 108, 108, 0.05);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.news-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00d4ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.news-symbol {
+    font-size: 0.9rem;
+    color: #ff4d4d;
+    margin-left: 1rem;
+}
+
+.news-description {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-top: 0.8rem;
+    line-height: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .news-header {
+        font-size: 2rem;
+    }
+
+    .news-title {
+        font-size: 1.2rem;
+    }
+
+    .news-description {
+        font-size: 0.95rem;
+    }
+}
