@@ -17,11 +17,11 @@ const News = () => {
   return (
     <section className="news-section">
       <h2 className="news-header">
-        { "Latest Stock News".split("").map((letter, index) => (
+        {"Latest Stock News".split("").map((letter, index) => (
           <span key={index} className="animated-letter" style={{ animationDelay: `${index * 0.08}s` }}>
             {letter}
           </span>
-        )) }
+        ))}
       </h2>
 
       <div className="news-cards">
