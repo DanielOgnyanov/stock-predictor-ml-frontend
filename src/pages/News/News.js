@@ -4,7 +4,6 @@ import { fetchNews } from "../../api/newsApi";
 
 const News = () => {
   const [newsData, setNewsData] = useState([]);
-
   useEffect(() => {
     const getNews = async () => {
       const news = await fetchNews();
