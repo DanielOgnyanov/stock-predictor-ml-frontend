@@ -12,7 +12,7 @@ function LivePrices() {
       const data = await fetchStocks();
 
       const updated = data.map((stock) => {
-      
+
         const change = stock.high - stock.open;
         const changePercent = ((change / stock.open) * 100).toFixed(2);
 
