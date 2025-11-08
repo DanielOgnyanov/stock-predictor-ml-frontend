@@ -89,7 +89,9 @@ const Login = ({ onSubmit }) => {
         </button>
 
         <div className="login-footer">
-          <a href="#forgot" className="login-link">Forgot password?</a>
+          <Link to="/reset-password" className="login-link">
+            Forgot password?
+          </Link>
         </div>
       </form>
     </div>
