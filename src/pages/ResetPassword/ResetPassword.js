@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./ResetPassword.css";
 import { useSearchParams } from "react-router-dom";
-import { resetPassword } from "../../api/authApi";
+import { resetPassword } from "../../api/resetPassword";
 
 export default function ResetPassword() {
   const [searchParams] = useSearchParams();
