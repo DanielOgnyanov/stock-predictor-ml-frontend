@@ -132,3 +132,65 @@ body.dark-theme {
   color: #ddd;
   transition: background 0.3s ease, color 0.3s ease;
 }
+
+.settings-dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.settings-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 0.95rem;
+  width: 100%;
+  text-align: left;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.settings-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.settings-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 180px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.2s ease;
+  z-index: 15;
+}
+
+.settings-option {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 10px 16px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.settings-option:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

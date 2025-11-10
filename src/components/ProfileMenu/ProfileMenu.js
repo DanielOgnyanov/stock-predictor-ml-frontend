@@ -9,19 +9,21 @@ const ProfileMenu = () => {
     const [darkMode, setDarkMode] = useState(false);
     const menuRef = useRef(null);
     const navigate = useNavigate();
+    const [showSettings, setShowSettings] = useState(false);
+
 
     const toggleMenu = () => setOpen((prev) => !prev);
 
-    
+
 
     useEffect(() => {
-       
+
         const savedTheme = localStorage.getItem("theme");
         const isDark = savedTheme === "dark";
         setDarkMode(isDark);
         document.body.classList.toggle("dark-theme", isDark);
 
-        
+
     }, []);
 
     const toggleTheme = () => {
@@ -51,9 +53,29 @@ const ProfileMenu = () => {
 
                     {isLoggedIn ? (
                         <>
-                            <button onClick={() => navigate("/settings")}>⚙️ Settings</button>
+                            <div className="settings-dropdown-wrapper">
+                                <button className="settings-button" onClick={() => setShowSettings((prev) => !prev)}>
+                                    ⚙️ Settings ▾
+                                </button>
 
-                            
+                                {showSettings && (
+                                    <div className="settings-dropdown">
+                                        <button
+                                            className="settings-option"
+                                            onClick={() => {
+                                                navigate("/change-password");
+                                                setShowSettings(false);
+                                                setOpen(false);
+                                            }}
+                                        >
+                                            🔒 Change Password
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+
+
+
                             <div className="theme-toggle" onClick={toggleTheme}>
                                 <div className={`toggle-track ${darkMode ? "dark" : "light"}`}>
                                     <div className="toggle-thumb">
@@ -76,7 +98,7 @@ const ProfileMenu = () => {
                             <button onClick={() => navigate("/login")}>🔐 Login</button>
                             <button onClick={() => navigate("/register")}>📝 Register</button>
 
-                        
+
                             <div className="theme-toggle" onClick={toggleTheme}>
                                 <div className={`toggle-track ${darkMode ? "dark" : "light"}`}>
                                     <div className="toggle-thumb">
@@ -85,7 +107,7 @@ const ProfileMenu = () => {
                                 </div>
                             </div>
 
-                            
+
                         </>
                     )}
                 </div>
