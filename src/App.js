@@ -15,6 +15,7 @@ import Footer from "./components/Footer/Footer";
 import News from "./pages/News/News";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import ChangePasswordPage from "./pages/ChangePasswordPage/ChangePasswordPage";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               <Route path="/news" element={<News />} />
               <Route path="/update-password" element={<ResetPassword />} />
               <Route path="/reset-password" element={<ForgotPassword />} />
+              <Route path="/change-password" element={<ChangePasswordPage />} />
             </Routes>
           </main>
           <Footer />
