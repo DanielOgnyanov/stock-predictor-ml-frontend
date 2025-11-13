@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Login.css";
 import { loginUser } from "../../api/authLogin"
 import { useNavigate, Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 
 const Login = ({ onSubmit }) => {
@@ -10,6 +12,7 @@ const Login = ({ onSubmit }) => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const { login } = useContext(AuthContext);
 
   const validate = () => {
     const e = {};
@@ -33,8 +36,9 @@ const Login = ({ onSubmit }) => {
         console.log("Login success:", data);
         navigate("/homepage");
 
-
-        localStorage.setItem("token", data.token);
+        if (data.token) {
+          login(data.token); 
+        }
 
         if (typeof onSubmit === "function") {
           onSubmit(data);
