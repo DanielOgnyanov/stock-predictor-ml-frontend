@@ -49,7 +49,9 @@ function Register() {
         login(token); 
       }
 
-      navigate("/homepage"); 
+      
+
+      navigate("/login"); 
     } catch (error) {
       console.error("Registration failed:", error);
       alert("Registration failed: " + error.message);
