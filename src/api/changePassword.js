@@ -1,10 +1,16 @@
-const API_BASE_URL = "http://localhost:8080/api/user/change-password"; 
+const API_BASE_URL = "http://localhost:8080/api/user";
 
 export const changePassword = async (payload) => {
+  const token = localStorage.getItem("token"); 
+  if (!token) {
+    throw new Error("No authentication token found. Please login.");
+  }
+
   const response = await fetch(`${API_BASE_URL}/change-password`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`, 
     },
     body: JSON.stringify(payload),
   });
