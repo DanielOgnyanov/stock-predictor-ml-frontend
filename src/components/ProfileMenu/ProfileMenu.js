@@ -88,6 +88,7 @@ const ProfileMenu = () => {
                                 onClick={() => {
                                     logout();
                                     setOpen(false);
+                                    navigate("/");
                                 }}
                             >
                                 🚪 Logout
