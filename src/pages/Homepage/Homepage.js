@@ -13,7 +13,7 @@ const Homepage = () => {
         <p>Check the latest prices, news, and predictions.</p>
       </section>
 
-      
+
     </div>
   );
 };
