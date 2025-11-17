@@ -6,22 +6,22 @@
 
   min-height: 100vh;
   box-sizing: border-box;
-   margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .welcome-banner {
   grid-column: span 2;
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: transparent;
   color: #fff;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
- 
+
   width: 700px;
   height: 120px;
-  margin: 0 auto;  
+  margin: 0 auto;
 }
 
 .welcome-banner:hover {
