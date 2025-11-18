@@ -7,6 +7,7 @@ const Homepage = () => {
   const { user } = useContext(AuthContext);
 
   return (
+    
     <div className="home">
       <section className="welcome-banner">
         <h2>Welcome back, {user?.firstName} 👋</h2>
