@@ -10,7 +10,7 @@ const Homepage = () => {
     
     <div className="home">
       <section className="welcome-banner">
-        <h2>Welcome back, {user?.firstName} 👋</h2>
+        <h2>Welcome back, {user?.firstName}</h2>
         <p>Check the latest prices, news, and predictions.</p>
       </section>
 
