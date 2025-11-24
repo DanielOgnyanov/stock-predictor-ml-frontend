@@ -16,6 +16,7 @@ import News from "./pages/News/News";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ChangePasswordPage from "./pages/ChangePasswordPage/ChangePasswordPage";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -29,14 +30,43 @@ function App() {
               <Route path="/" element={<IndexPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-
-              <Route path="/predict" element={<Predict />} />
               <Route path="/livePrices" element={<LivePrices />} />
-              <Route path="/price-history/:symbol" element={<PriceHistory />} />
-              <Route path="/news" element={<News />} />
-              <Route path="/update-password" element={<ResetPassword />} />
               <Route path="/reset-password" element={<ForgotPassword />} />
-              <Route path="/change-password" element={<ChangePasswordPage />} />
+              <Route path="/news" element={<News />} />
+
+              <Route 
+                path="/predict" 
+                element={
+                  <PrivateRoute>
+                    <Predict />
+                  </PrivateRoute>
+                } 
+              />
+               <Route 
+                path="/price-history/:symbol" 
+                element={
+                  <PrivateRoute>
+                    <PriceHistory />
+                  </PrivateRoute>
+                } 
+              />
+              
+              <Route 
+                path="/update-password" 
+                element={
+                  <PrivateRoute>
+                    <ResetPassword />
+                  </PrivateRoute>
+                } 
+              />
+                <Route 
+                path="/change-password" 
+                element={
+                  <PrivateRoute>
+                    <ChangePasswordPage />
+                  </PrivateRoute>
+                } 
+              />
             </Routes>
           </main>
           <Footer />
