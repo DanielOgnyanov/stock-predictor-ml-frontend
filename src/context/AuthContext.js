@@ -10,17 +10,30 @@ export const AuthProvider = ({ children }) => {
 
 
   useEffect(() => {
-    const savedToken = localStorage.getItem("token");
-    const savedUser = localStorage.getItem("user");
+    try {
+      const savedToken = localStorage.getItem("token");
+      const savedUserRaw = localStorage.getItem("user");
 
-    if (savedToken && savedUser) {
-      if (isTokenValid(savedToken)) {
-        setToken(savedToken);
-        setUser(JSON.parse(savedUser));
-        setIsLoggedIn(true);
-      } else {
-        logout();
+      
+      if (
+        savedToken &&
+        savedUserRaw &&
+        savedUserRaw !== "undefined" &&
+        savedUserRaw !== "null"
+      ) {
+        const savedUser = JSON.parse(savedUserRaw);
+
+        if (isTokenValid(savedToken)) {
+          setToken(savedToken);
+          setUser(savedUser);
+          setIsLoggedIn(true);
+        } else {
+          logout();
+        }
       }
+    } catch (error) {
+      console.error("AuthContext localStorage load failed:", error);
+      logout(); 
     }
   }, []);
 
