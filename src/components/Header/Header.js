@@ -15,13 +15,13 @@ function Header() {
 
   const authLinks = [
     { label: "News", path: "news" },
-    { label: "Home", path: "home" },
+    
     { label: "Predict", path: "predict" },
     { label: "Live Prices", path: "livePrices" },
   ];
 
   const handleLogoClick = () => {
-    navigate(isLoggedIn ? "/homepage" : "/");
+    navigate(isLoggedIn ? "/predict" : "/");
   };
 
   return (
