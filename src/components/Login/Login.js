@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Login.css";
-import { loginUser } from "../../api/authLogin"
+import { loginUser } from "../../api/authLogin";
 import { useNavigate, Link } from "react-router-dom";
-import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
-
-const Login = ({ onSubmit }) => {
+const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,40 +13,47 @@ const Login = ({ onSubmit }) => {
   const { login } = useContext(AuthContext);
 
   const validate = () => {
-    const e = {};
-    if (!email) e.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = "Invalid email";
-    if (!password) e.password = "Password is required";
-    else if (password.length < 6) e.password = "Password must be >= 6 characters";
-    return e;
+    const errs = {};
+    if (!email) errs.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      errs.email = "Invalid email format";
+
+    if (!password) errs.password = "Password is required";
+    else if (password.length < 6)
+      errs.password = "Password must be at least 6 characters";
+
+    return errs;
   };
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    const e = validate();
-    setErrors(e);
 
-    if (Object.keys(e).length === 0) {
-      setLoading(true);
-      try {
+    const errs = validate();
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) return;
 
-        const data = await loginUser(email, password);
-        console.log("Login success:", data);
-        navigate("/homepage");
+    setLoading(true);
 
-        if (data.token) {
-          login(data.token); 
-        }
+    try {
+      const data = await loginUser(email, password);
 
-        if (typeof onSubmit === "function") {
-          onSubmit(data);
-        }
-      } catch (err) {
-        console.error("Login error:", err);
-        setErrors({ api: "Invalid email or password" });
-      } finally {
-        setLoading(false);
+      if (!data || !data.token) {
+        throw new Error("Invalid login response");
       }
+
+      
+      login({
+        token: data.token,
+        username: data.username,
+        userRole: data.userRole
+      });
+
+      navigate("/predict"); 
+    } catch (err) {
+      console.error("Login error:", err);
+      setErrors({ api: "Invalid email or password" });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -64,12 +69,9 @@ const Login = ({ onSubmit }) => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@company.com"
-          autoComplete="username"
-          aria-invalid={!!errors.email}
-          aria-describedby={errors.email ? "email-error" : undefined}
+          placeholder="you@example.com"
         />
-        {errors.email && <div id="email-error" className="login-error">{errors.email}</div>}
+        {errors.email && <div className="login-error">{errors.email}</div>}
 
         <label className="login-label" htmlFor="password">Password</label>
         <input
@@ -79,12 +81,8 @@ const Login = ({ onSubmit }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="••••••••"
-          autoComplete="current-password"
-          aria-invalid={!!errors.password}
-          aria-describedby={errors.password ? "password-error" : undefined}
         />
-        {errors.password && <div id="password-error" className="login-error">{errors.password}</div>}
-
+        {errors.password && <div className="login-error">{errors.password}</div>}
 
         {errors.api && <div className="login-error">{errors.api}</div>}
 
@@ -99,7 +97,7 @@ const Login = ({ onSubmit }) => {
         </div>
       </form>
     </div>
-
   );
-}
+};
+
 export default Login;
