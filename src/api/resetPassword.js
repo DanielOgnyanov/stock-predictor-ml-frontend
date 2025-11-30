@@ -1,7 +1,14 @@
+const BASE_URL =
+  process.env.REACT_APP_API_URL
+    ? process.env.REACT_APP_API_URL + "/api"
+    : "http://localhost:8080/api";
+
 export const resetPassword = async (token, password) => {
-  const response = await fetch("http://localhost:8080/api/auth/reset-password", {
+  const response = await fetch(`${BASE_URL}/auth/reset-password`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({ token, newPassword: password }),
   });
 
