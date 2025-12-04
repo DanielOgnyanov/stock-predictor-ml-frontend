@@ -17,6 +17,7 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ChangePasswordPage from "./pages/ChangePasswordPage/ChangePasswordPage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import DisclaimerTicker from "./components/DisclaimerTicker/DisclaimerTicker";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <GlobalBackground />
         <div className="app-wrapper">
           <Header />
+            <DisclaimerTicker />
           <main className="app-content">
             <Routes>
               <Route path="/" element={<IndexPage />} />
