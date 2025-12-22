@@ -1,7 +1,7 @@
 const API_BASE_URL =
-  (process.env.REACT_APP_API_URL
-    ? process.env.REACT_APP_API_URL + "/api/user"
-    : "http://localhost:8080/api/user");
+  process.env.REACT_APP_API_BASE_URL
+    ? `${process.env.REACT_APP_API_BASE_URL}/api/user`
+    : "http://localhost:8080/api/user";
 
 export const changePassword = async (payload) => {
   const token = localStorage.getItem("token");
@@ -14,21 +14,18 @@ export const changePassword = async (payload) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(payload),
     });
 
-    
     if (!response.ok) {
       let errorMessage = "Failed to change password. Please try again.";
 
       try {
         const errorData = await response.json();
         if (errorData?.error) errorMessage = errorData.error;
-      } catch (_) {
-        
-      }
+      } catch (_) {}
 
       throw new Error(errorMessage);
     }
@@ -36,6 +33,6 @@ export const changePassword = async (payload) => {
     return await response.json();
   } catch (err) {
     console.error("Change-password request failed:", err);
-    throw err; 
+    throw err;
   }
 };
