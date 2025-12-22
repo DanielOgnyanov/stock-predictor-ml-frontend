@@ -1,6 +1,6 @@
 const BASE_URL =
-  process.env.REACT_APP_API_URL
-    ? process.env.REACT_APP_API_URL + "/api"
+  process.env.REACT_APP_API_BASE_URL
+    ? `${process.env.REACT_APP_API_BASE_URL}/api`
     : "http://localhost:8080/api";
 
 export const fetchLatestPrediction = async (symbol) => {
@@ -11,9 +11,9 @@ export const fetchLatestPrediction = async (symbol) => {
       throw new Error("Failed to fetch prediction");
     }
 
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (err) {
     throw err;
   }
 };
+
