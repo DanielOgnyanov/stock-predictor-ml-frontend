@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL + "/api/user/login";
-
+const API_URL =
+  process.env.REACT_APP_API_BASE_URL
+    ? `${process.env.REACT_APP_API_BASE_URL}/api/user/login`
+    : "http://localhost:8080/api/user/login";
 
 export const loginUser = async (email, password) => {
   try {
@@ -18,9 +20,7 @@ export const loginUser = async (email, password) => {
       username: data.username || data.lastName || "User",
       userRole: data.userRole || data.role || "USER",
     };
-
   } catch (error) {
-    
     if (error.response) {
       console.error("Server error:", error.response.data);
       throw new Error(error.response.data.message || "Login failed");
