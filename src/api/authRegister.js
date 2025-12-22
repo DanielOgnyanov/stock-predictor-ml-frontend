@@ -1,8 +1,9 @@
 import axios from "axios";
 
 const API_URL =
-  process.env.REACT_APP_API_URL + "/api/user/register" ||
-  "http://localhost:8080/api/user/register";
+  process.env.REACT_APP_API_BASE_URL
+    ? `${process.env.REACT_APP_API_BASE_URL}/api/user/register`
+    : "http://localhost:8080/api/user/register";
 
 export const authRegister = async (userData) => {
   try {
@@ -10,8 +11,7 @@ export const authRegister = async (userData) => {
       headers: {
         "Content-Type": "application/json",
       },
-      
-      withCredentials: false, 
+      withCredentials: false,
     });
 
     return response.data;
@@ -21,7 +21,6 @@ export const authRegister = async (userData) => {
       error.response?.data || error.message
     );
 
-    
     throw error.response?.data || { message: "Registration error" };
   }
 };
