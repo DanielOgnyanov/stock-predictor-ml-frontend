@@ -1,6 +1,6 @@
 const BASE_URL =
-  process.env.REACT_APP_API_URL
-    ? process.env.REACT_APP_API_URL + "/api"
+  process.env.REACT_APP_API_BASE_URL
+    ? `${process.env.REACT_APP_API_BASE_URL}/api`
     : "http://localhost:8080/api";
 
 export const resetPassword = async (token, password) => {
@@ -9,7 +9,10 @@ export const resetPassword = async (token, password) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ token, newPassword: password }),
+    body: JSON.stringify({
+      token,
+      newPassword: password,
+    }),
   });
 
   if (!response.ok) {
