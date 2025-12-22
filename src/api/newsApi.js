@@ -1,6 +1,6 @@
 const BASE_URL =
-  process.env.REACT_APP_API_URL
-    ? process.env.REACT_APP_API_URL + "/api"
+  process.env.REACT_APP_API_BASE_URL
+    ? `${process.env.REACT_APP_API_BASE_URL}/api`
     : "http://localhost:8080/api";
 
 export const fetchNews = async () => {
@@ -11,16 +11,13 @@ export const fetchNews = async () => {
       },
     });
 
-    
     if (!response.ok) {
       let errorMessage = `HTTP error! status: ${response.status}`;
 
       try {
         const errData = await response.json();
         if (errData?.error) errorMessage = errData.error;
-      } catch (_) {
-        
-      }
+      } catch (_) {}
 
       throw new Error(errorMessage);
     }
