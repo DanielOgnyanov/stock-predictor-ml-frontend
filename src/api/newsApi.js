@@ -17,7 +17,7 @@ export const fetchNews = async () => {
       try {
         const errData = await response.json();
         if (errData?.error) errorMessage = errData.error;
-      } catch (_) {}
+      } catch (_) { }
 
       throw new Error(errorMessage);
     }
